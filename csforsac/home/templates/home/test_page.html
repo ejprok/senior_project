@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+    <div class="container"> 
+        {{ page.body|richtext }}
+    </div>
+
+    <div class="container">
+        {{ page.extra|richtext }}
+    </div>
+    <div class="container">
+        {{ page.more|richtext }}
+    </div>
+{% endblock %}
