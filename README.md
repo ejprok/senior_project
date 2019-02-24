@@ -37,4 +37,14 @@
 9.  Test to see if you can visit the website by visiting 50.116.12.68:YOUR_PORT_NUM in your browser.
 
 
+## Update your Database
 
+To stay updated with the current live demo's database, use this script to copy the database into your project.  It will overwrite your current database.  From the root directory of the project, use these commands.
+
+1.  Go into the scripts directory
+
+		cd scripts/
+
+2.  Run the script
+
+		./copy_db.sh 
