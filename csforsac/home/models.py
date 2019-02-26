@@ -6,12 +6,12 @@ from wagtail.admin.edit_handlers import FieldPanel
 
 
 class HomePage(Page):
-    body = RichTextField(blank=True)
+    body = models.CharField(max_length=255)
     extra = RichTextField(blank=True)
     more = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel('body', classname="full"),
+        FieldPanel('body'),
         FieldPanel('extra'),
         FieldPanel('more'),
     ]
