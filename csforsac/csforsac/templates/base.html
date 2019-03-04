@@ -27,67 +27,69 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-        <nav class="navbar navbar-expand-md navbar-dark bg-black">
-            <a class="navbar-brand" href="#">
-              <img style="height:50px; width:50px" src="https://www.scoe.net/News/PublishingImages/2018/september/csforsac_logo%402x.jpg" alt="">
-              CSforSAC</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Home
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Map</a>
-                      <a class="dropdown-item" href="#">Calendar</a>
-                      <a class="dropdown-item" href="#">Blog</a>
-                    </div>
-                  </li>
+        <nav class="navbar navbar-expand-md navbar-dark bg-black fixed-top">
+          <div class="container">
+              <a class="navbar-brand" href="#">
+                <img style="height:50px; width:50px" src="https://www.scoe.net/News/PublishingImages/2018/september/csforsac_logo%402x.jpg" alt="">
+                CSforSAC</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Home
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Map</a>
+                        <a class="dropdown-item" href="#">Calendar</a>
+                        <a class="dropdown-item" href="#">Blog</a>
+                      </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">What is CS?</a>
+                        <a class="dropdown-item" href="#">Why CS Education?</a>
+                        <a class="dropdown-item" href="#">Research</a>
+                      </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Learn
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Curriculum</a>
+                        <a class="dropdown-item" href="#">Summer of CS</a>
+                    </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      About
+                      Collaborate
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">What is CS?</a>
-                      <a class="dropdown-item" href="#">Why CS Education?</a>
-                      <a class="dropdown-item" href="#">Research</a>
+                      <a class="dropdown-item" href="#">Elementary</a>
+                      <a class="dropdown-item" href="#">Middle School</a>
+                      <a class="dropdown-item" href="#">High School</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Expanded Learning</a>
                     </div>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Learn
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Curriculum</a>
-                      <a class="dropdown-item" href="#">Summer of CS</a>
-                  </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Collaborate
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Elementary</a>
-                    <a class="dropdown-item" href="#">Middle School</a>
-                    <a class="dropdown-item" href="#">High School</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Expanded Learning</a>
-                  </div>
-                </li>
 
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Support
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Teach CS!</a>
-                    <a class="dropdown-item" href="#">Standards and Framework</a>
-                    <a class="dropdown-item" href="#">Implementation</a>
-                </li>
-              </ul>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Support
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Teach CS!</a>
+                      <a class="dropdown-item" href="#">Standards and Framework</a>
+                      <a class="dropdown-item" href="#">Implementation</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </nav>
           
