@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+<!-- section delineator -->
+
+<!-- hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+} -->
+
+  <div class="container">
+    <div class="row">
+        <div class="col-sm" id="about-col-title">
+            <div id="about-col-content">
+                Elementary
+            </div>
+        </div>
+        <div class="col-sm"id="about-col-title">
+            <div id="about-col-content">
+                Middle
+            </div>
+        </div>
+        <div class="col-sm"id="about-col-title">
+            <div id="about-col-content">
+                High School
+            </div>
+        </div>
+    </div>
+  </div>
+
+<!-- divider -->
+<div>
+    <div style="height:20px; overflow:hidden; width: 100%;"></div>
+        <hr class="styled-hr" style="width:100%;">
+    <div style="height:20px; overflow:hidden; width: 100%;"></div>
+</div>
+
+{% endblock %}
