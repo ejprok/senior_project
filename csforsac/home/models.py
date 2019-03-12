@@ -8,20 +8,19 @@ from wagtail.admin.edit_handlers import FieldPanel
 
 
 class HomePage(RoutablePageMixin, Page):
-    body = models.CharField(max_length=255)
+    body = models.TextField(max_length=255)
     test_field = models.CharField(max_length=30, blank=True)
     extra = RichTextField(blank=True)
     more = RichTextField(blank=True)
-
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+        FieldPanel('extra'),
+        FieldPanel('test_field'),
+        FieldPanel('more'),
+    ]
     @route(r'^home/$')
     def home_page(self, request, *args, **kwargs):
-        print("who")
-        content_panels = Page.content_panels + [
-            FieldPanel('body'),
-            FieldPanel('extra'),
-            FieldPanel('test_field'),
-            FieldPanel('more'),
-        ]
+        
         response = TemplateResponse(
             request, 'home/home_page.html'
         )
@@ -32,16 +31,16 @@ class AboutPage(RoutablePageMixin, Page):
     test_field = models.CharField(max_length=30, blank=True)
     extra = RichTextField(blank=True)
     more = RichTextField(blank=True)
-
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+        FieldPanel('extra'),
+        FieldPanel('test_field'),
+        FieldPanel('more'),
+    ]
+ 
     @route(r'^about/$')
     def about_page(self, request, *args, **kwargs):
         print("ye")
-        content_panels = Page.content_panels + [
-            FieldPanel('body'),
-            FieldPanel('extra'),
-            FieldPanel('test_field'),
-            FieldPanel('more'),
-        ]
         response = TemplateResponse(
             request, 'home/about_page.html'
         )
