@@ -23,7 +23,7 @@ class HomePage(RoutablePageMixin, Page):
             FieldPanel('more'),
         ]
         response = TemplateResponse(
-            request, 'home/home_page.html'
+            request, 'home/contact_page.html'
         )
         return response
 
