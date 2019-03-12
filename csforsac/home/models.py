@@ -8,7 +8,7 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 
 
-class HomePage(Page):
+class HomePage(RoutablePageMixin, Page):
     carousel_1_header = models.TextField(max_length=255, blank=True)
     carousel_1_body = models.TextField(max_length=255, blank=True)
     carousel_2_header = models.TextField(max_length=255, blank=True)
@@ -26,6 +26,13 @@ class HomePage(Page):
         FieldPanel('carousel_3_header'),
         FieldPanel('carousel_3_body'),
     ]
+
+    @route(r'^/$')
+    def home_page(self, request, *args, **kwargs):
+        response = TemplateResponse(
+            request, 'home/home_page.html'
+        )
+        return response
 
 class AboutPage(RoutablePageMixin, Page):
     body = models.CharField(max_length=255, blank=True)
