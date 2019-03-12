@@ -40,7 +40,7 @@ class AboutPage(RoutablePageMixin, Page):
         FieldPanel('body'),
     ]
  
-    @route(r'^about/$')
+    @route(r'^/$')
     def about_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'home/about_page.html'
@@ -50,15 +50,71 @@ class AboutPage(RoutablePageMixin, Page):
 
 
 class ContactPage(RoutablePageMixin, Page):
+    header  = models.TextField(max_length=255, blank=True)
+    subheader = models.TextField(max_length=255, blank=True)
+    email_title = models.TextField(max_length=255, blank=True)
+    email_sub_info = models.TextField(max_length=255, blank=True)
+    phone_title = models.TextField(max_length=255, blank=True)
+    phone_sub_info = models.TextField(max_length=255, blank=True)
+    address_title = models.TextField(max_length=255, blank=True)
+    address_sub_info = models.TextField(max_length=255, blank=True)
+    content_panels = Page.content_panels + [
+        FieldPanel('header'),
+        FieldPanel('subheader'),
+        FieldPanel('email_title'),
+        FieldPanel('email_sub_info'),
+        FieldPanel('phone_title'),
+        FieldPanel('phone_sub_info'),
+        FieldPanel('address_title'),
+        FieldPanel('address_sub_info'),
+    ]
+ 
+    @route(r'^/$')
+    def contact_page(self, request, *args, **kwargs):
+        response = TemplateResponse(
+            request, 'home/contact_page.html'
+        )
+        return response
+
+
+class LearnPage(RoutablePageMixin, Page):
     body = models.CharField(max_length=255, blank=True)
     content_panels = Page.content_panels + [
         FieldPanel('body'),
     ]
  
-    @route(r'^contact/$')
-    def about_page(self, request, *args, **kwargs):
+    @route(r'^/$')
+    def learn_page(self, request, *args, **kwargs):
         response = TemplateResponse(
-            request, 'home/contact_page.html'
+            request, 'home/learn_page.html'
+        )
+        return response
+
+
+class CollaboratePage(RoutablePageMixin, Page):
+    body = models.CharField(max_length=255, blank=True)
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+    ]
+ 
+    @route(r'^/$')
+    def collab_page(self, request, *args, **kwargs):
+        response = TemplateResponse(
+            request, 'home/collaborate_page.html'
+        )
+        return response
+
+
+class SupportPage(RoutablePageMixin, Page):
+    body = models.CharField(max_length=255, blank=True)
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+    ]
+ 
+    @route(r'^/$')
+    def support_page(self, request, *args, **kwargs):
+        response = TemplateResponse(
+            request, 'home/support_page.html'
         )
         return response
 
