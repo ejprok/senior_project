@@ -1,47 +1,31 @@
 body {
-    max-width: 960px;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 0 15px;
     color: #231f20;
     font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
     line-height: 1.25;
 }
 
-a {
-    background-color: transparent;
-    color: #308282;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: #ea1b10;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-ul {
-    padding: 0;
-    margin: 0;
-    font-weight: 400;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e6e6e6;
-}
-
 .main {
     padding: 40px 0;
     margin: 0 auto;
+    text-align: center;
+}
+
+hr .styled-hr{ 
+  display: block;
+  unicode-bidi: isolate;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+  width: 70%; 
+  overflow: hidden;
+  /* TODO: fix width of divider */
+}
+
+#about-title h1 {
+    margin: 15px auto;
     text-align: center;
 }
 
@@ -58,7 +42,13 @@ ul {
     margin: 15px auto 0;
 }
 
+#quote1 {
+    text-align: center;
+    padding-bottom: 20px;
+}
 #quote-row #quote2 h3{
+    padding-top: 80px;
+    padding-bottom: 70px;
     color:rgba(255,140,0,0.7);
 }
 
@@ -66,6 +56,8 @@ ul {
     margin: 5px auto;
 }
 
-#quote1-img{
+#quote2-img{
     margin: 5px auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
