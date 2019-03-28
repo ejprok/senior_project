@@ -23,6 +23,12 @@
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/csforsac.css' %}">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lato">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" />
+		
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
@@ -30,10 +36,10 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-        <nav class="navbar navbar-expand-md navbar-dark bg-black fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark custom-nav fixed-top">
 
-              <a class="navbar-brand" href="/">
-                <img style="height:50px; width:50px" src="/media/images/CSforSAC_Transparent.max-165x165.png" alt="">
+              <a class="navbar-brand hvr-grow" href="/">
+                <img style="height:45px; width:45px" src="/media/images/CSforSAC_Transparent.max-165x165.png" alt="">
                 CSforSAC</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,57 +48,57 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="nav-link dropdown-toggle hvr-grow" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Home
                       </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Map</a>
-                        <a class="dropdown-item" href="#">Calendar</a>
-                        <a class="dropdown-item" href="#">Blog</a>
+                      <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item hvr-grow" href="#">Map</a>
+                        <a class="dropdown-item hvr-grow" href="#">Calendar</a>
+                        <a class="dropdown-item hvr-grow" href="#">Blog</a>
                       </div>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="nav-link dropdown-toggle hvr-grow" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         About
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/about">What is CS?</a>
-                        <a class="dropdown-item" href="/about">Why CS Education?</a>
-                        <a class="dropdown-item" href="/about">Research</a>
+                        <a class="dropdown-item hvr-grow" href="/about">What is CS?</a>
+                        <a class="dropdown-item hvr-grow" href="/about">Why CS Education?</a>
+                        <a class="dropdown-item hvr-grow" href="/about">Research</a>
                       </div>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="nav-link dropdown-toggle hvr-grow" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Learn
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/learn">Curriculum</a>
-                        <a class="dropdown-item" href="/learn">Summer of CS</a>
+                        <a class="dropdown-item hvr-grow" href="/learn">Curriculum</a>
+                        <a class="dropdown-item hvr-grow" href="/learn">Summer of CS</a>
                     </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle hvr-grow" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Collaborate
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/collaborate">Elementary</a>
-                      <a class="dropdown-item" href="/collaborate">Middle School</a>
-                      <a class="dropdown-item" href="/collaborate">High School</a>
+                      <a class="dropdown-item hvr-grow" href="/collaborate">Elementary</a>
+                      <a class="dropdown-item hvr-grow" href="/collaborate">Middle School</a>
+                      <a class="dropdown-item hvr-grow" href="/collaborate">High School</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Expanded Learning</a>
+                      <a class="dropdown-item hvr-grow" href="#">Expanded Learning</a>
                     </div>
                   </li>
 
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle hvr-grow" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Support
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/support">Teach CS!</a>
-                      <a class="dropdown-item" href="/support">Standards and Framework</a>
-                      <a class="dropdown-item" href="/support">Implementation</a>
+                      <a class="dropdown-item hvr-grow" href="/support">Teach CS!</a>
+                      <a class="dropdown-item hvr-grow" href="/support">Standards and Framework</a>
+                      <a class="dropdown-item hvr-grow" href="/support">Implementation</a>
                   </li>
                       <li class="nav-item">
-        		<a class="nav-link" href="/contact">Contact</a>
+        		<a class="nav-link hvr-grow" href="/contact">Contact</a>
       		      </li>
 		</ul>
               </div>
@@ -106,8 +112,79 @@
         <script type="text/javascript" src="{% static 'js/csforsac.js' %}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+        
+        <script>
+		    new WOW().init();
+	    </script>
+
+
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
+        
+        
     </body>
+    
+    
+    
+<!-- Footer -->
+	<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4 wow bounceInUp">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+					</ul>
+				</div>
+				<div data-wow-delay="0.1s" class="col-xs-12 col-sm-4 col-md-4 wow bounceInUp">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+					</ul>
+				</div>
+				<div data-wow-delay="0.2s" class="col-xs-12 col-sm-4 col-md-4 wow bounceInUp">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+						<li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row ">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>
+				</hr>
+			</div>	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p><u><a href="/">CSforSAC</a></u> is a work in progress</p>
+					<p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="/about" target="_blank">Sacramento</a></p>
+				</div>
+				</hr>
+			</div>	
+		</div>
+	</section>
+	<!-- ./Footer -->
+    
+
 </html>
