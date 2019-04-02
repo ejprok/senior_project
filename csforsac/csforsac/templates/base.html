@@ -40,7 +40,7 @@
 
               <a class="navbar-brand hvr-grow" href="/">
                 <img style="height:45px; width:45px" src="/media/images/CSforSAC_Transparent.max-165x165.png" alt="">
-                CSforSAC</a>
+                <span class=" type-title"></span></a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -52,7 +52,7 @@
                         Home
                       </a>
                       <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item hvr-grow" href="#">Map</a>
+                        <a class="dropdown-item hvr-grow" onclick="location.reload()" href="/#test">Map</a>
                         <a class="dropdown-item hvr-grow" href="#">Calendar</a>
                         <a class="dropdown-item hvr-grow" href="#">Blog</a>
                       </div>
@@ -113,8 +113,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-        
+        	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+       
         <script>
+	        var typed = new Typed('.type-title', {
+			  strings: ["CSforSAC",],
+			  typeSpeed: 30,
+			  cursorChar: '_'
+			});
 		    new WOW().init();
 	    </script>
 
