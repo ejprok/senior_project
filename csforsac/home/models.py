@@ -27,7 +27,6 @@ class HomePage(RoutablePageMixin, Page):
         FieldPanel('carousel_3_body'),
     ]
 
-    @route(r'^/$')
     def home_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'home/home_page.html'
@@ -40,7 +39,6 @@ class AboutPage(RoutablePageMixin, Page):
         FieldPanel('body'),
     ]
  
-    @route(r'^/$')
     def about_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'home/about_page.html'
@@ -69,7 +67,6 @@ class ContactPage(RoutablePageMixin, Page):
         FieldPanel('address_sub_info'),
     ]
  
-    @route(r'^/$')
     def contact_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'home/contact_page.html'
@@ -83,7 +80,6 @@ class LearnPage(RoutablePageMixin, Page):
         FieldPanel('body'),
     ]
  
-    @route(r'^/$')
     def learn_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'home/learn_page.html'
@@ -97,7 +93,6 @@ class CollaboratePage(RoutablePageMixin, Page):
         FieldPanel('body'),
     ]
  
-    @route(r'^/$')
     def collab_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'home/collaborate_page.html'
@@ -111,7 +106,6 @@ class SupportPage(RoutablePageMixin, Page):
         FieldPanel('body'),
     ]
  
-    @route(r'^/$')
     def support_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'home/support_page.html'

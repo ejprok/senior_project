@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{self.subtitle }} is the subtitle
+{% endblock %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        {% for blog in blog_list%}
+            <h1> {{ blog.title }}</h>
+            <p>By {{ blog.author }}</p>
+            <p>By {{ blog.content }}</p>
+        {% endfor %}
+    </body>
+</html>

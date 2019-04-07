@@ -28,8 +28,8 @@ INSTALLED_APPS = [
     'search',
     'blog',
 
-    'wagtail.contrib.routable_page',
-
+    'wagtail.contrib.routable_page', # enable routable pages
+    
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
