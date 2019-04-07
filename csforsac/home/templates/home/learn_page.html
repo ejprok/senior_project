@@ -1,1 +1,99 @@
-learn page
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+
+    <main role="main">
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="first-slide" src="https://picsum.photos/1600/400" alt="First slide">
+                  <div class="container">
+                    <div class="carousel-caption text-left">
+		      <h1> {{ page.header}}</h1>
+		      <p>{{ page.subheader }}</p>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+      
+      
+           <!-- START THE FEATURETTES -->
+      
+           <hr class="featurette-divider">
+      
+           <div class="row featurette">
+              <div class="row featurette wow bounceInRight">
+                <div class="col-md-7">
+                  <h2 class="featurette-heading">K-2<span class="text-muted"></span></h2>
+                  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                </div>
+              </div>
+             <div class="col-md-5">
+               <img class="featurette-image img-fluid mx-auto" src="https://picsum.photos/500/500" alt="Generic placeholder image">
+             </div>
+           </div>
+   
+           <hr class="featurette-divider">
+   
+           <div class="row featurette">
+             <div class="col-md-7">
+               <h2 class="featurette-heading">3-5 <span class="text-muted"></span></h2>
+               <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+             </div>
+             <div class="col-md-5">
+               <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+             </div>
+           </div>
+   
+           <hr class="featurette-divider">
+   
+           <div class="row featurette">
+             <div class="col-md-7">
+               <h2 class="featurette-heading">6th <span class="text-muted"></span></h2>
+               <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+             </div>
+             <div class="col-md-5">
+               <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+             </div>
+           </div>
+
+           <hr class="featurette-divider">
+   
+           <div class="row featurette">
+             <div class="col-md-7">
+               <h2 class="featurette-heading">7th <span class="text-muted"></span></h2>
+               <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+             </div>
+             <div class="col-md-5">
+               <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+             </div>
+           </div>
+
+           <hr class="featurette-divider">
+   
+           <div class="row featurette">
+             <div class="col-md-7">
+               <h2 class="featurette-heading">8th <span class="text-muted"></span></h2>
+               <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+             </div>
+             <div class="col-md-5">
+               <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+             </div>
+           </div>
+   
+           <hr class="featurette-divider">
+
+           
+   
+           <!-- /END THE FEATURETTES -->
+
+{% endblock %}
