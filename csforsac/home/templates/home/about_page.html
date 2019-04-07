@@ -1,42 +1,114 @@
 {% extends "base.html" %}
 
+{% load static %}
 {% load wagtailcore_tags %}
-
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-<!-- section delineator -->
 
-<!-- hr { 
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 1px;
-} -->
+<link rel="stylesheet" href="{% static 'css/about_page.css' %} ">
 
-  <div class="container">
-    <div class="row">
-        <div class="col-sm" id="about-col-title">
-            <div id="about-col-content">
-                Elementary
+<main role="main">
+
+    <div class="container" id="about"> TODO: fix top padding
+        <div id="about-title">
+            <h1>Computer Science in the Greater Sacramento Area</h1>
+        </div>
+        <div class="col-lg" id="quote1">
+            <!-- <h3>{{ page.quote1 }}</h3> -->
+            <h3>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua."
+            </h3>
+        </div>
+        <div class="row" id="quote-row">
+            <div class="col-8" id="quote2">
+                <!-- <h3>{{ page.quote2 }}</h3> -->
+                <h3>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                    tempor incididunt ut labore et dolore magna aliqua."
+                </h3>
+            </div>
+            <div class="col-4" id="quote2-img">
+                <img class="img-fluid" src="https://picsum.photos/503" alt="Generic placeholder image">
             </div>
         </div>
-        <div class="col-sm"id="about-col-title">
-            <div id="about-col-content">
-                Middle
-            </div>
+
+        <div class="row">   
+            <div class="col-sm" id="about-col-content">
+              <div id="about-col-header">
+                  <!-- <h1>{{ page.col_1_header }}</h1> -->
+                  <h1>Elementary</h1>
+              </div>
+              <div id="about-col-body">
+                <!-- <p>{{ page.col_1_body }}</p> -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                    tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                    in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              </div>
+              <div id="button">
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+              </div>
+          </div>
+          <div class="col-sm"id="about-col-content">
+              <div id="about-col-header">
+                  <!-- <h1>{{ page.col_2_header }}</h1> -->
+                  <h1>Middle</h1>
+              </div>
+              <div id="about-col-body">
+                  <!-- <p>{{ page.col_2_body }}</p> -->
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                        tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.y</p>
+              </div>
+              <div id="button">
+                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                </div>
+          </div>
+          <div class="col-sm"id="about-col-content">
+              <div id="about-col-header">
+                  <!-- <h1>{{ page.col_3_header }}</h1> -->
+                  <h1>High</h1>
+              </div>
+              <div id="about-col-body">
+                  <!-- <p>{{ page.col_3_body }}</p> -->
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                        tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              </div>
+              <div id="button">
+                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                  </div>
+          </div>
+      </div>
+    </div>
+
+<!-- divider -->
+<div>
+    <div style="height:20px; overflow:hidden; width: 100%;"></div>
+        <hr class="styled-hr" style="width:100%;">
+    <div style="height:20px; overflow:hidden; width: 100%;"></div>
+</div>
+
+<!-- What is Computer Science -->
+<div class="container" id="what-is-cs">
+    <div class="row" id="quote-row">
+        <div class="col-8" id="quote2">
+            <!-- <h3>{{ page.quote2 }}</h3> -->
+            <h3>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua."
+            </h3>
         </div>
-        <div class="col-sm"id="about-col-title">
-            <div id="about-col-content">
-                High School
-            </div>
+        <div class="col-4" id="quote1-img">
+            <img class="img-fluid" src="https://picsum.photos/503" alt="Generic placeholder image">
         </div>
     </div>
-  </div>
+</div>
 
 <!-- divider -->
 <div>
