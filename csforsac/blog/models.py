@@ -11,69 +11,78 @@ import feedparser # To get a feel from medium.com
 
 
 """ 
-Anatomy of a feed:
-    title
-    title_detail
-    subtitle
-    subtitle_detail
-    links
-    link
-    image
-    generator_detail
-    generator
-    updated
-    updated_parsed
-    publisher
-    publisher_detail
+Plan:
+Insert URL of articles:
+    use beautiful soup.
+        # this holds whole article
+        grab class = " section-inner sectionLayout--insetColumn " OR  <div class="section-content">
+            This contains whole article with various sections:
+            Headers
+            Images
+    Store this data in database
+    
+Grab new URLS from feed (follow url to get the article with the method described above)
+            
 
+
+object feed
+    feed
+    entries # appears to have all the articles
+    bozo
+    headers
+    href
+    status
+    encoding
+    version
+    namespaces
+
+Anatomy of a feed.entries
+    can be 'content'(whole article) or 'summary_detail' (just a summary)
 
 """
 class BlogListingPage(Page):
-    """ This is going to list all the blog pages that we have """
-    """ Do we make all the blogs"""
-    print( "In blog_page method")
 
-    # body = models.CharField(max_length=255, blank=True)
-    # content_panels = Page.content_panels + [
-    #         FieldPanel('body'),
-    # ]
+    def get_featured_authors():
+        list_of_authors = [
+            '@samuel.fare',
+            '@amalong',
+            '@ratracegrad'
+        ]
+        return list_of_authors
+
+    def get_featured_authors():
+       
+        list_featured_articles= [
+            'https://medium.com/@amalong/hacking-education-d4047e5d5a29',       
+            'https://medium.com/techspiration-ideas-making-it-happen/when-the-heck-did-learning-to-code-become-cool-2e953f1c5efb'
+        ]
+        return list_featured_articles
+
+
 
     def get_context(self, request):
-            # feed = feedparser.parse('https://medium.com/feed/@amalong')
-            feed = feedparser.parse('https://medium.com/feed/@samuel.fare')
-          
-            for elem in feed.feed:
-                print('next element : ',elem)
+            feed = feedparser.parse('https://medium.com/feed/@amalong')
+            # feed = feedparser.parse('https://medium.com/feed/@samuel.fare')
+            articles = []
+            for elem in feed.entries:
+                # only append if article is a full article
+                if 'content' in elem: 
+                    print('next element : ', elem.title)
+
+                    for cont_elem in elem.content:
+                        print("NEXT IN CONTENT: ", cont_elem)
+
+                    articles.append(elem)
                 
+            print (feed.feed.generator_detail)
+
+
             context ={
-                'title' : feed.feed.title,
-                'sub-Title' : feed.feed.subtitle,
-                'image' : feed.feed.image,
-                'publisher' : feed.feed.publisher,
+                'articles' : articles,
                 
             }
             return context
 
-    # custom_title = models.CharField(
-    #     max_length=100,
-    #     blank=False,
-    #     null=False,
-    #     help_text='overwrite the default title',
-    # )
-
-    # def get_context(self, request, *args,**kwargs):
-    #     """ Adding blogs to our context """
-    #     context = super().get_context(request, *args. **kwargs)
-    #     return context
-    # def get_context(self, request, *args, **kwargs):
-    #     print( "In blog_page method")
-
-    #     entire_feed = feedparser.parse('https://medium.com/feed/@amalong')
-    #     # print("whole feed ",entire_feed)
-    #     body = models.CharField(max_length=255, blank=True)
-    #     content_panels = Page.content_panels + [
-    #             FieldPanel('body'),
-    #     ]
 
   
 
