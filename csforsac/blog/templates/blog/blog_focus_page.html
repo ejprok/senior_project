@@ -1,20 +1,25 @@
 
 {% extends "base.html" %}
 
-{% block content %}
-    {{self.subtitle }} is the subtitle
-{% endblock %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        {% for blog in blog_list%}
-        <h1> {{ blog.title }}</h>
-        <p>By {{ blog.author }}</p>
-        <p>By {{ blog.content }}</p>
-        {% endfor %}
-    </body>
-</html>
+
+{% block content %}
+    {% image self.article_image fill-1200x300 as header_image %}
+
+    <p> </p>
+    <div class='container'>
+            <h1> {{self.custom_title}}</h1>
+    </div>
+    <p> </p>
+    <div class='container'>
+        <img src='{{header_image.url}}' alt="{{ header_image.alt }}" style='width: 100%; height: auto;'>
+
+        {% for block in page.content %}
+            {% include_block block %}
+
+        {% endfor%}
+
+    </div>
+
+{% endblock %}

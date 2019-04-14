@@ -46,9 +46,9 @@ num_blogs = 5
 blog_display_list = []
 blog_display_list.append(get_5_blogs(blog_list))
 
-def get_5_blogs(blog_list,blo):
-    num_blogs += 5
-    return blog_list[(num_blogs-5):num_blogs]
+def get_5_blogs(blog_list):
+
+    pass
 
 def blog_listing(request):
     pass

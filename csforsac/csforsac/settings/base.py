@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
+    'wagtail.contrib.styleguide',
     'wagtail.contrib',
     'wagtail.embeds',
     'wagtail.sites',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+    # 'wagtail.images.edit_handlers',
 
     'modelcluster',
     'taggit',
