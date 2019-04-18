@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% block content %}
+    {% image self.article_image height-280 as header_image %}
+
+    <p> </p>
+    <div class='container'>
+            <h1> {{self.custom_title}}</h1>
+    </div>
+    <p> </p>
+    <div class='container'>
+        <img src='{{header_image.url}}' alt="{{ header_image.alt }}" style='{{ header_image.width }}'>
+
+        {% for block in required_content %}
+            {% include_block block %}
+
+        {% endfor %}
+
+        {% for block in page.content %}
+            {% include_block block %}
+
+        {% endfor%}
+
+    </div>
+
+{% endblock %}

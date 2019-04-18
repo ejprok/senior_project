@@ -34,8 +34,14 @@ INSTALLED_APPS = [
 
     'wagtail.contrib.routable_page',
 
+    'blog',
+    
+    'wagtail.contrib.routable_page', # enable routable pages
+    
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
+    'wagtail.contrib.styleguide',
+    'wagtail.contrib',
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
@@ -45,6 +51,7 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+    # 'wagtail.images.edit_handlers',
 
     'modelcluster',
     'taggit',

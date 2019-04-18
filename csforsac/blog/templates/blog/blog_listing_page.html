@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block content %}
+
+    {% image self.blog_listing_banner fill-1360x250 as img%}
+    <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: contain; color: #fff !important"> 
+
+        <h1 class='display-4'> {{self.custom_title}} </h1>
+
+    </div>
+
+    <div class="container"> 
+
+        {% for blog in blogs%}
+        {% comment %} {% if forloop.counter == 1 %}
+            <h1 >First count! </h1>
+        {% endif %} {% endcomment %}
+             <div class="row t-15 mb-5">
+
+                    <div class="col-sm-3">
+                        {% image blog.article_image fill-180x180 as article_image %}
+                        <a href="{{ blog.url }}">
+                            <img src="{{ article_image.url }}" alt="{{ article_image.alt }}">
+                        </a>
+                    </div>
+
+
+                    <div class="col-sm-9">
+                        <a href="{{ blog.url }}">
+                            <h4 style=" ">{{ blog.custom_title }}</h3>
+                        </a>
+                        <P> {{ blog.blog_summary }}... </p>
+                        <a href="{{ blog.url }}" class="btn btn-primary mt-4">See Article</a>
+                    </div>
+
+                </div>
+               
+        {% endfor %}
+
+    </div>  
+{% endblock %}
