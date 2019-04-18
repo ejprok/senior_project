@@ -36,7 +36,6 @@ INSTALLED_APPS = [
 
     'blog',
     
-    'wagtail.contrib.routable_page', # enable routable pages
     
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
