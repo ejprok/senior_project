@@ -7,8 +7,8 @@ from django import forms
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
-from wagtail.images.edit_handlers import ImageChooserPanel # idk what this is, but it's work keeping in mind maybe
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.embeds.blocks import EmbedBlock
 from blog import blog_blocks as blocks # custom blocks
 from wagtail.core.blocks import RichTextBlock
@@ -54,6 +54,7 @@ class BlogFocusPage(RoutablePageMixin, Page):
         "wagtailimages.Image",
         blank=False,
         null=True,
+        help_text = 'This image is scalled to 500 pixels tall',
         on_delete=models.SET_NULL,
     )
     blog_summary = models.TextField(
@@ -64,27 +65,36 @@ class BlogFocusPage(RoutablePageMixin, Page):
     )
     content = StreamField(
         [
-            ("title_and_text", blocks.TitleAndTextBlock()),
+            ("title_and_Subtitle", blocks.TitleAndSubtitle() ),
             ("full_richtext", blocks.RichtextBlock()),
             ("limited_richtext", blocks.LimitedRichtextBlock()),
             ("embeding", blocks.EmbededBlock()),
-            # ("Image", blocks.CardBlock()),
+            ("card_block", blocks.CardBlock()),
             # ("cta", blocks.CTABlock()),
         ],
         null=True,
         blank=True,
     )
     content_panels = Page.content_panels + [
-        FieldPanel("custom_title"),
-        FieldPanel("blog_summary"),
-        ImageChooserPanel("article_image"),
-        StreamFieldPanel("content"),
+        MultiFieldPanel([
+            FieldPanel("custom_title"),
+            ImageChooserPanel("article_image"),
+
+        ],heading ="titles and header"),
+        MultiFieldPanel([
+            FieldPanel("blog_summary"),
+            # StreamFieldPanel("required_content"),
+        ],heading ="Summary"),
+
+        MultiFieldPanel([
+            StreamFieldPanel("content"),
+        ],heading ="Body"),
+
     ]
     class meta: #noqa
         verbose_name = "Blog Post"
-    def blog_page(self, request, *args, **kwargs):
-        response = TemplateResponse(
-            request, 'blog/blog_focus.html'
-        )
-        return response
+    
+
+
+
 

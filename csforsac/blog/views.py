@@ -40,20 +40,3 @@ this function will return 5 more blogs to be put on the page_display_list
 #returns 5 more blog to be added to the list of blogs to display
 """
 
-
-blog_list = get_sorted_blog_list()
-num_blogs = 5
-blog_display_list = []
-blog_display_list.append(get_5_blogs(blog_list))
-
-def get_5_blogs(blog_list):
-
-    pass
-
-def blog_listing(request):
-    pass
-
-
-def blog_focus(requeest):
-    pass    
-
