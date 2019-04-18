@@ -25,7 +25,12 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     'home',
+    'events',
     'search',
+    'rest_framework',
+    "geoposition",
+    'django_google_maps',
+
 
     'wagtail.contrib.routable_page',
 
@@ -163,3 +168,19 @@ WAGTAIL_SITE_NAME = "csforsac"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY = "REPLACE"
+
+MAPS_API_KEY = "REPLACE"
+
+GOOGLE_MAPS_API_KEY =  "REPLACE"

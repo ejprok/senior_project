@@ -7,6 +7,7 @@ from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 
+from events.models import Event
 
 class HomePage(RoutablePageMixin, Page):
     carousel_1_header = models.TextField(max_length=255, blank=True)
@@ -117,5 +118,31 @@ class SupportPage(RoutablePageMixin, Page):
             request, 'home/support_page.html'
         )
         return response
+        
+        
 
+class EventsPage(Page):
+    body = models.CharField(max_length=255, blank=True)
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+    ]
+
+    def get_context(self, request):
+        all_entries = Event.objects.all()
+
+        context = { 'events' : all_entries}
+        return context
+        
+        
+class MapPage(Page):
+    body = models.CharField(max_length=255, blank=True)
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+    ]
+
+    def get_context(self, request):
+        all_entries = Event.objects.all()
+
+        context = { 'events' : all_entries}
+        return context
 

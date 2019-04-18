@@ -13,6 +13,8 @@ urlpatterns = [
 
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
+    	url(r'^events-api/', include('events.urls')),
+    	url(r'^api-auth/', include('rest_framework.urls')),
 
     url(r'^search/$', search_views.search, name='search'),
 
