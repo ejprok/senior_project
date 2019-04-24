@@ -5,13 +5,21 @@ from django import forms
 
 # from wagtail.core import blocks # inherit this from blog_blocks
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
-from wagtail.core.models import Page
+from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.embeds.blocks import EmbedBlock
 from blog import blog_blocks as blocks # custom blocks
 from wagtail.core.blocks import RichTextBlock
+from modelcluster.fields import ParentalKey
+
+
+
+
+
+
+
 
 
 class BlogListingPage(Page):
@@ -35,7 +43,7 @@ class BlogListingPage(Page):
     ]
     def get_context(self, request, *args, **kwargs):
             context = super().get_context(request, *args, **kwargs)
-            context["blogs"] = BlogFocusPage.objects.live().public() 
+            context["blogs"] = BlogFocusPage.objects.live().public()
             # print("Printing blogs")
             # for blog in context["blogs"]:
             #     print("HERE are the blogs: ",blog)       
@@ -83,7 +91,6 @@ class BlogFocusPage(RoutablePageMixin, Page):
         ],heading ="titles and header"),
         MultiFieldPanel([
             FieldPanel("blog_summary"),
-            # StreamFieldPanel("required_content"),
         ],heading ="Summary"),
 
         MultiFieldPanel([
@@ -95,6 +102,51 @@ class BlogFocusPage(RoutablePageMixin, Page):
         verbose_name = "Blog Post"
     
 
+class BasicPage(RoutablePageMixin, Page):
+    tempalate = "blog/basic_page.html"
+    content = StreamField(
+        [
+            ("free_carousel", blocks.FreeCarouselBlock()),
+            ("title_and_Subtitle", blocks.TitleAndSubtitle() ),
+            ("full_richtext", blocks.RichtextBlock()),
+            ("limited_richtext", blocks.LimitedRichtextBlock()),
+            ("left_media_list", blocks.LeftSmMediaBlock()),
+            ("alt_media_list", blocks.AltSmMediaBlock()),
+            ("embeding", blocks.EmbededBlock()),
+            ("cards", blocks.CardBlock()),
+            ("alternating_featurettes", blocks.AltLrgMediaBlock()),
+            # ("cta", blocks.CTABlock()), #@TODO would we like a call to action stream?
+        ],
+        null=True,
+        blank=True,
+    )
+
+    content_panels = Page.content_panels + [
+       
+        MultiFieldPanel([
+            # InlinePanel("basic_carousel", max_num=7, min_num=3, label="Carousel Image"),
+            StreamFieldPanel("content"),
+        ],heading ="Page Contents"),
+
+    ]
+    class meta: #noqa
+        verbose_name = "Basic Page"
 
 
 
+
+"""
+Orderable classes 
+"""
+# class BasicCarouselImages(Orderable):
+#     page = ParentalKey("blog.BasicPage", related_name = "basic_carousel")
+#     basic_carousel = models.ForeignKey(
+#         "wagtailimages.Image",
+#         null =True,
+#         blank=False,
+#         on_delete=models.SET_NULL,
+#         related_name="+"
+#     )
+#     panels = [
+#         ImageChooserPanel("basic_carousel")
+#     ]

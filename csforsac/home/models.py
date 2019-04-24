@@ -1,16 +1,16 @@
 from django.db import models
 from django.template.response import TemplateResponse
+from django import forms
 
-from wagtail.core import blocks
-from blog import blog_blocks as CustomBlocks # custom blocks
+# from wagtail.core import blocks
+import home.stream_blocks as CustomBlocks # custom blocks
 
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
-
+from wagtail.core.blocks import RichTextBlock
 
 from events.models import Event
 
@@ -21,7 +21,6 @@ class HomePage(RoutablePageMixin, Page):
     carousel_2_body = models.TextField(max_length=255, blank=True)
     carousel_3_header = models.TextField(max_length=255, blank=True)
     carousel_3_body = models.TextField(max_length=255, blank=True)
-
     content_panels = Page.content_panels + [
         FieldPanel('carousel_1_header'),
         FieldPanel('carousel_1_body'),
@@ -30,7 +29,6 @@ class HomePage(RoutablePageMixin, Page):
         FieldPanel('carousel_3_header'),
         FieldPanel('carousel_3_body'),
     ]
-
     def home_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'home/home_page.html'
@@ -40,7 +38,13 @@ class HomePage(RoutablePageMixin, Page):
 
 # Add various streamfields to the generic Page
 class GenericPage(RoutablePageMixin, Page):
-    tempalate = 'generic/generic_page.html'
+    # tempalate = 'generic/dfg.html'
+    # custom_title = models.CharField(
+    #     max_length=100,
+    #     blank = True,
+    #     null=False,
+    #     help_text = 'type in the title for the blog listing page',
+    # )
     content = StreamField(
         [
             ("title_and_subtitle", CustomBlocks.TitleAndSubtitle()),
@@ -54,23 +58,23 @@ class GenericPage(RoutablePageMixin, Page):
         blank=True,
     )
     content_panels = Page.content_panels + [
-        StreamFieldPanel("content"),
+        # FieldPanel("custom_title"),
+        StreamFieldPanel("content")
     ]
+
+    
+    @route(r'^$')
     def generic_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'generic/generic_page.html'
         )
         return response
 
-    class meta: #noqa
-        verbose_name = "Generic Page"
-
 class AboutPage(RoutablePageMixin, Page):
     body = models.CharField(max_length=255, blank=True)
     content_panels = Page.content_panels + [
         FieldPanel('body'),
     ]
- 
     def about_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'home/about_page.html'
@@ -96,7 +100,6 @@ class ContactPage(RoutablePageMixin, Page):
         FieldPanel('address_title'),
         FieldPanel('address_sub_info'),
     ]
- 
     def contact_page(self, request, *args, **kwargs):
         response = TemplateResponse(
             request, 'home/contact_page.html'
