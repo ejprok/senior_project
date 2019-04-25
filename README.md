@@ -56,7 +56,7 @@ If you are having trouble with migrations after creating new models or pulling i
 
 1.	You should first comment out any new model classes that you are trying to create.  
 
-2.	You should also delete all of the migration files in the app that you are having issues with (ex Home, Blog, Events). Make sure that there is still an "__init__.py" file in the migrations directory, otherwise you wont be able to migrate.  If you understand why the migrations are causing an issue, you could edit the migration files instead.
+2.	You should also delete all of the migration files in the app that you are having issues with (ex Home, Blog, Events). Make sure that there is still an \_\_init\_\_.py file in the migrations directory, otherwise you wont be able to migrate.  If you understand why the migrations are causing an issue, you could edit the migration files instead.
 
 		cd csforsac/<app_name>/migrations/
 		
