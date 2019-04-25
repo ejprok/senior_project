@@ -48,3 +48,36 @@ To stay updated with the current live demo's database, use this script to copy t
 2.  Run the script
 
 		./copy_db.sh 
+		
+		
+## Fix Migration Issues
+
+If you are having trouble with migrations after creating new models or pulling in recent changes, here are some steps to try to resolve the issues.
+
+1.	You should first comment out any new model classes that you are trying to create.  
+
+2.	You should also delete all of the migration files in the app that you are having issues with (ex Home, Blog, Events). Make sure that there is still an "__init__.py" file in the migrations directory, otherwise you wont be able to migrate.  If you understand why the migrations are causing an issue, you could edit the migration files instead.
+
+		cd csforsac/<app_name>/migrations/
+		
+		rm *.py
+		
+		touch __init__.py
+		
+3.	Go back to the directory where manage.py is located, and makemigrations.
+
+		./manage.py makemigrations
+		
+4.	Migrate the db, but with the fake option.
+
+		./manage.py migrate --fake
+		
+5.	If you had any new models that you commented out, go ahead and uncomment them and makemigrations.
+
+		./manage.py makemigrations
+	
+6.	You should finally be able to properly migrate your db.
+
+		./manage.py migrate
+	
+
