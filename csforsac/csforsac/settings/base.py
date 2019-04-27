@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'events',
     'search',
     'rest_framework',
-    "geoposition",
+    'geoposition',
     'django_google_maps',
 
 
