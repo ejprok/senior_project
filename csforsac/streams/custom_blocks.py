@@ -1,4 +1,4 @@
-"""" Custom blocks for the blog page """
+"""" Custom blocks for streaming to apps """
 
 from wagtail.core import blocks
 from wagtail.embeds.blocks import EmbedBlock # can we figure out how to embed youtube
@@ -10,7 +10,7 @@ class TitleAndSubtitle(blocks.StructBlock):
     title = blocks.CharBlock(required=False, help_text="Add your title")
     sub_title = blocks.CharBlock(required=False, help_text="Add your sub-title")
     class Meta:  # noqa
-        template = "blocks/title_and_text_block.html"
+        template = "streams/title_and_text_block.html"
         icon = "edit"
         label = "Title and Subtitle"
 
@@ -18,7 +18,7 @@ class RichtextBlock(blocks.RichTextBlock):
     """ Richtext """
 
     class Meta:  # noqa
-        template = "blocks/basic_block.html"
+        template = "streams/basic_block.html"
         icon = "doc-full"
         label = "Full Richtext"
 
@@ -33,7 +33,7 @@ class LimitedRichtextBlock(blocks.RichTextBlock):
         self.features = ["bold", "italic", "link","ol", "ul"]
 
     class Meta:  # noqa
-        template = "blocks/basic_block.html" # 
+        template = "streams/basic_block.html" # 
         icon = "edit"
         label = "Limited Richtext"
 
@@ -41,7 +41,7 @@ class EmbededBlock(EmbedBlock):
     """ use rich text stream field instead """
 
     class Meta:  # noqa
-        template = "blocks/basic_block.html" # 
+        template = "streams/basic_block.html" # 
         icon = "media"
         label = "embeding"
 
@@ -62,32 +62,9 @@ class CardBlock(blocks.StructBlock):
         )
     )
     class Meta:  # noqa
-        template = "blocks/cards_block.html" # 
-
-class NavDropList(blocks.StructBlock):
-    """ cards side by side with picture and text"""
-    title = blocks.CharBlock(required=True, max_length=12, help_text="Add your title")
-    drop_list = blocks.ListBlock(
-        blocks.StructBlock(
-            [
-                ("nav_title", blocks.CharBlock(required=True, max_length=12)),
-                ("nav_link", blocks.PageChooserBlock(required=True, help_text="choose a page to link to")),
-            ]
-        )
-    )
-    class Meta:  # noqa
-        template = "blocks/nav_drop_list.html" # 
-        icon = "arrow-down"
+        template = "streams/cards_block.html" # 
 
 
-class NavLink(blocks.StructBlock):
-    """ cards side by side with picture and text"""
-    title = blocks.CharBlock(required=True, max_length=12, help_text="Add your title"),
-    nav_link = blocks.PageChooserBlock(required=True, help_text="choose a page to link to"),
-
-    class Meta:  # noqa
-        template = "blocks/nav_title_link.html" # 
-        icon ="redirect"
 
 
 class FreeCarouselBlock(blocks.StructBlock):
@@ -103,7 +80,7 @@ class FreeCarouselBlock(blocks.StructBlock):
         )
     )
     class Meta:  # noqa
-        template = "blocks/nav_title_link.html" 
+        template = "streams/nav_title_link.html" 
         icon ="image"
 
 
@@ -126,7 +103,7 @@ class AltLrgMediaBlock(blocks.StructBlock):
         )
     )
     class Meta:  # noqa
-        template = "blocks/alt_lrg_media_block.html"
+        template = "streams/alt_lrg_media_block.html"
         icon ="image"
 
 
@@ -143,7 +120,7 @@ class LeftSmMediaBlock(blocks.StructBlock):
         )
     )
     class Meta:  # noqa
-        template = "blocks/left_sm_media_block.html" 
+        template = "streams/left_sm_media_block.html" 
         icon ="image"
 
 class AltSmMediaBlock(blocks.StructBlock):
@@ -163,18 +140,28 @@ class AltSmMediaBlock(blocks.StructBlock):
         )
     )
     class Meta:  # noqa
-        template = "blocks/alt_sm_media_block.html"
+        template = "streams/alt_sm_media_block.html"
         icon ="image"
 
 
-# class BannerImageBlock(blocks.StructBlock):
+# class WideBannerImageBlock(blocks.StructBlock):
 #     # @TODO make template
 #     ("image", ImageChooserBlock(required=True)),
 #     ("title", blocks.CharBlock(required=False, max_length=25)),
 #     ("sub_title", blocks.TextBlock(required=False, max_length=50)),
 
 #     class Meta:  # noqa
-#         template = "blocks/basic_block.html" 
+#         template = "streams/basic_block.html" 
+#         icon ="image"
+
+# class SquareBannerImageBlock(blocks.StructBlock):
+#     # @TODO make template
+#     ("image", ImageChooserBlock(required=True)),
+#     ("title", blocks.CharBlock(required=False, max_length=25)),
+#     ("sub_title", blocks.TextBlock(required=False, max_length=50)),
+
+#     class Meta:  # noqa
+#         template = "streams/basic_block.html" 
 #         icon ="image"
 
 
@@ -212,3 +199,34 @@ class AltSmMediaBlock(blocks.StructBlock):
 #         icon = "placeholder"
 #         label = "Single Button"
 #         value_class = LinkStructValue
+
+
+
+
+
+
+
+# class NavDropList(blocks.StructBlock):
+#     """ cards side by side with picture and text"""
+#     title = blocks.CharBlock(required=True, max_length=12, help_text="Add your title")
+#     drop_list = blocks.ListBlock(
+#         blocks.StructBlock(
+#             [
+#                 ("nav_title", blocks.CharBlock(required=True, max_length=12)),
+#                 ("nav_link", blocks.PageChooserBlock(required=True, help_text="choose a page to link to")),
+#             ]
+#         )
+#     )
+#     class Meta:  # noqa
+#         template = "blocks/nav_drop_list.html" # 
+#         icon = "arrow-down"
+
+
+# class NavLink(blocks.StructBlock):
+#     """ cards side by side with picture and text"""
+#     title = blocks.CharBlock(required=True, max_length=12, help_text="Add your title"),
+#     nav_link = blocks.PageChooserBlock(required=True, help_text="choose a page to link to"),
+
+#     class Meta:  # noqa
+#         template = "blocks/nav_title_link.html" # 
+#         icon ="redirect"

@@ -10,7 +10,7 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.embeds.blocks import EmbedBlock
-from blog import blog_blocks as blocks # custom blocks
+from streams import custom_blocks as blocks # custom blocks
 from wagtail.core.blocks import RichTextBlock
 from modelcluster.fields import ParentalKey
 
@@ -102,38 +102,35 @@ class BlogFocusPage(RoutablePageMixin, Page):
         verbose_name = "Blog Post"
     
 
-class BasicPage(RoutablePageMixin, Page):
-    tempalate = "blog/basic_page.html"
-    content = StreamField(
-        [
-            ("free_carousel", blocks.FreeCarouselBlock()),
-            ("title_and_Subtitle", blocks.TitleAndSubtitle() ),
-            ("full_richtext", blocks.RichtextBlock()),
-            ("limited_richtext", blocks.LimitedRichtextBlock()),
-            ("left_media_list", blocks.LeftSmMediaBlock()),
-            ("alt_media_list", blocks.AltSmMediaBlock()),
-            ("embeding", blocks.EmbededBlock()),
-            ("cards", blocks.CardBlock()),
-            ("alternating_featurettes", blocks.AltLrgMediaBlock()),
-            # ("cta", blocks.CTABlock()), #@TODO would we like a call to action stream?
-        ],
-        null=True,
-        blank=True,
-    )
+# class BasicPage(RoutablePageMixin, Page):
+#     tempalate = "blog/basic_page.html"
+#     content = StreamField(
+#         [
+#             ("free_carousel", blocks.FreeCarouselBlock()),
+#             ("title_and_Subtitle", blocks.TitleAndSubtitle() ),
+#             ("full_richtext", blocks.RichtextBlock()),
+#             ("limited_richtext", blocks.LimitedRichtextBlock()),
+#             ("left_media_list", blocks.LeftSmMediaBlock()),
+#             ("alt_small_media_list", blocks.AltSmMediaBlock()),
+#             ("embeding", blocks.EmbededBlock()),
+#             ("cards", blocks.CardBlock()),
+#             ("alternating_featurettes", blocks.AltLrgMediaBlock()),
+#             # ("cta", blocks.CTABlock()), #@TODO would we like a call to action stream?
+#         ],
+#         null=True,
+#         blank=True,
+#     )
 
-    content_panels = Page.content_panels + [
+#     content_panels = Page.content_panels + [
        
-        MultiFieldPanel([
-            # InlinePanel("basic_carousel", max_num=7, min_num=3, label="Carousel Image"),
-            StreamFieldPanel("content"),
-        ],heading ="Page Contents"),
+#         MultiFieldPanel([
+#             # InlinePanel("basic_carousel", max_num=7, min_num=3, label="Carousel Image"),
+#             StreamFieldPanel("content"),
+#         ],heading ="Page Contents"),
 
-    ]
-    class meta: #noqa
-        verbose_name = "Basic Page"
-
-
-
+#     ]
+#     class meta: #noqa
+#         verbose_name = "Basic Page"
 
 """
 Orderable classes 

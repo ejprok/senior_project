@@ -3,7 +3,7 @@ from django.template.response import TemplateResponse
 from django import forms
 
 # from wagtail.core import blocks
-import home.stream_blocks as CustomBlocks # custom blocks
+from streams import custom_blocks # custom blocks
 
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.core.fields import RichTextField, StreamField
@@ -35,40 +35,6 @@ class HomePage(RoutablePageMixin, Page):
         )
         return response
 
-
-# Add various streamfields to the generic Page
-class GenericPage(RoutablePageMixin, Page):
-    # tempalate = 'generic/dfg.html'
-    # custom_title = models.CharField(
-    #     max_length=100,
-    #     blank = True,
-    #     null=False,
-    #     help_text = 'type in the title for the blog listing page',
-    # )
-    content = StreamField(
-        [
-            ("title_and_subtitle", CustomBlocks.TitleAndSubtitle()),
-            ("full_richtext", CustomBlocks.RichtextBlock()),
-            ("limited_richtext", CustomBlocks.LimitedRichtextBlock()),
-            ("embeding", CustomBlocks.EmbededBlock()),
-            ("card_block", CustomBlocks.CardBlock()),
-            # ("cta", blocks.CTABlock()),
-        ],
-        null=True,
-        blank=True,
-    )
-    content_panels = Page.content_panels + [
-        # FieldPanel("custom_title"),
-        StreamFieldPanel("content")
-    ]
-
-    
-    @route(r'^$')
-    def generic_page(self, request, *args, **kwargs):
-        response = TemplateResponse(
-            request, 'generic/generic_page.html'
-        )
-        return response
 
 class AboutPage(RoutablePageMixin, Page):
     body = models.CharField(max_length=255, blank=True)
@@ -172,18 +138,36 @@ class MapPage(Page):
         context = { 'events' : all_entries}
         return context
 
-# Not even close to working yet
-class NavBar(Page):
-    tempalate = "nav_bar/nav_bar.html"
 
-    content = StreamField(
-        [
-            ("nav_title_link", CustomBlocks.NavLink()),
-            ("nav_drop_list", CustomBlocks.NavDropList()),
-        ],
-        null=True,
-        blank=True,
-    )
-    content_panels = Page.content_panels + [
-        StreamFieldPanel("content"),
-    ]
+"""
+Orderable classes 
+"""
+# class BasicCarouselImages(Orderable):
+#       # reference related_name in HomePage
+#     page = ParentalKey("home.HomePage", related_name = "basic_carousel") 
+#     basic_carousel = models.ForeignKey(
+#         "wagtailimages.Image",
+#         null =True,
+#         blank=False,
+#         on_delete=models.SET_NULL,
+#         related_name="+"
+#     )
+#     panels = [
+#         ImageChooserPanel("basic_carousel")
+#     ]
+
+# Not even close to working yet
+# class NavBar(Page):
+#     tempalate = "nav_bar/nav_bar.html"
+
+#     content = StreamField(
+#         [
+#             ("nav_title_link", CustomBlocks.NavLink()),
+#             ("nav_drop_list", CustomBlocks.NavDropList()),
+#         ],
+#         null=True,
+#         blank=True,
+#     )
+#     content_panels = Page.content_panels + [
+#         StreamFieldPanel("content"),
+#     ]
