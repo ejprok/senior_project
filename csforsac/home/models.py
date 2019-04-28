@@ -37,20 +37,22 @@ class HomePage(RoutablePageMixin, Page):
 
 
 class AboutPage(RoutablePageMixin, Page):
-    quote1 = models.CharField(max_length=255, blank=True)
-    quote2 = models.CharField(max_length=400, blank=True)
-    quote3 = models.CharField(max_length=400, blank=True)
-    col_1_header = models.CharField(max_length=375, blank=True)
-    col_2_header = models.CharField(max_length=375, blank=True)
-    col_3_header = models.CharField(max_length=375, blank=True)
-    col_1_body = models.CharField(max_length=375, blank=True)
-    col_2_body = models.CharField(max_length=375, blank=True)
-    col_3_body = models.CharField(max_length=375, blank=True)
-    goal_intro = models.CharField(max_length=375, blank=True)
-    goal1 = models.CharField(max_length=200, blank=True)
-    goal2 = models.CharField(max_length=200, blank=True)
-    goal3 = models.CharField(max_length=200, blank=True)
+    main_title = models.TextField(max_length=255, blank=True)
+    quote1 = models.TextField(max_length=255, blank=True)
+    quote2 = models.TextField(max_length=400, blank=True)
+    quote3 = models.TextField(max_length=400, blank=True)
+    col_1_header = models.TextField(max_length=375, blank=True)
+    col_2_header = models.TextField(max_length=375, blank=True)
+    col_3_header = models.TextField(max_length=375, blank=True)
+    col_1_body = models.TextField(max_length=375, blank=True)
+    col_2_body = models.TextField(max_length=375, blank=True)
+    col_3_body = models.TextField(max_length=375, blank=True)
+    goal_intro = models.TextField(max_length=375, blank=True)
+    goal1 = models.TextField(max_length=200, blank=True)
+    goal2 = models.TextField(max_length=200, blank=True)
+    goal3 = models.TextField(max_length=200, blank=True)
     content_panels = Page.content_panels + [
+        FieldPanel('main_title'),
         FieldPanel('quote1'),
         FieldPanel('quote2'),
         FieldPanel('col_1_header'),
