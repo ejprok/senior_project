@@ -66,9 +66,33 @@ class GenericPage(RoutablePageMixin, Page):
         verbose_name = "Generic Page"
 
 class AboutPage(RoutablePageMixin, Page):
-    body = models.CharField(max_length=255, blank=True)
+    quote1 = models.CharField(max_length=255, blank=True)
+    quote2 = models.CharField(max_length=400, blank=True)
+    quote3 = models.CharField(max_length=400, blank=True)
+    col_1_header = models.CharField(max_length=375, blank=True)
+    col_2_header = models.CharField(max_length=375, blank=True)
+    col_3_header = models.CharField(max_length=375, blank=True)
+    col_1_body = models.CharField(max_length=375, blank=True)
+    col_2_body = models.CharField(max_length=375, blank=True)
+    col_3_body = models.CharField(max_length=375, blank=True)
+    goal_intro = models.CharField(max_length=375, blank=True)
+    goal1 = models.CharField(max_length=200, blank=True)
+    goal2 = models.CharField(max_length=200, blank=True)
+    goal3 = models.CharField(max_length=200, blank=True)
     content_panels = Page.content_panels + [
-        FieldPanel('body'),
+        FieldPanel('quote1'),
+        FieldPanel('quote2'),
+        FieldPanel('col_1_header'),
+        FieldPanel('col_1_body'),
+        FieldPanel('col_2_header'),
+        FieldPanel('col_2_body'),
+        FieldPanel('col_3_header'),
+        FieldPanel('col_3_body'),
+        FieldPanel('quote3'),
+        FieldPanel('goal_intro'),
+        FieldPanel('goal1'),
+        FieldPanel('goal2'),
+        FieldPanel('goal3'),
     ]
  
     def about_page(self, request, *args, **kwargs):
