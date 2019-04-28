@@ -1,6 +1,7 @@
 /venv
 *.sock
 /csforsac/home/migrations/*
+/csforsac/blog/migrations/*
 # Created by https://www.gitignore.io
 
 ### OSX ###
