@@ -2,6 +2,7 @@
 from django.db import models
 from django.template.response import TemplateResponse
 from django import forms
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 # from wagtail.core import blocks # inherit this from blog_blocks
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
@@ -15,15 +16,11 @@ from wagtail.core.blocks import RichTextBlock
 from modelcluster.fields import ParentalKey
 
 
-
-
-
-
-
-
-
 class BlogListingPage(Page):
     tempalate = "blog/blog_listing_page.html"
+    max_count = 1
+    subpage_types = ['BlogFocusPage']
+
     custom_title = models.CharField(
         max_length=100,
         blank = True,
@@ -41,17 +38,29 @@ class BlogListingPage(Page):
         FieldPanel("custom_title"),
         ImageChooserPanel("blog_listing_banner"),
     ]
+
+
     def get_context(self, request, *args, **kwargs):
             context = super().get_context(request, *args, **kwargs)
-            context["blogs"] = BlogFocusPage.objects.live().public()
-            # print("Printing blogs")
-            # for blog in context["blogs"]:
-            #     print("HERE are the blogs: ",blog)       
+            all_posts = BlogFocusPage.objects.live().public().order_by('-first_published_at')
+            
+            paginator = Paginator(all_posts, 2)
+            page = request.GET.get("page")
+            try:
+                posts = paginator.page(page)
+            except PageNotAnInteger:
+                posts = paginator.page(1)
+            except EmptyPage:
+                posts = paginator.page(paginator.num_pages)
+
+            context["posts"] = posts
             return context
 
 
 class BlogFocusPage(RoutablePageMixin, Page):
     tempalate = "blog/blog_focus_page.html"
+    subpage_types = []
+    parent_page_types = ['blog.BlogListingPage']
     custom_title = models.CharField(
         max_length=100,
         blank = True,
@@ -101,49 +110,3 @@ class BlogFocusPage(RoutablePageMixin, Page):
     class meta: #noqa
         verbose_name = "Blog Post"
     
-
-# class BasicPage(RoutablePageMixin, Page):
-#     tempalate = "blog/basic_page.html"
-#     content = StreamField(
-#         [
-#             ("free_carousel", blocks.FreeCarouselBlock()),
-#             ("title_and_Subtitle", blocks.TitleAndSubtitle() ),
-#             ("full_richtext", blocks.RichtextBlock()),
-#             ("limited_richtext", blocks.LimitedRichtextBlock()),
-#             ("left_media_list", blocks.LeftSmMediaBlock()),
-#             ("alt_small_media_list", blocks.AltSmMediaBlock()),
-#             ("embeding", blocks.EmbededBlock()),
-#             ("cards", blocks.CardBlock()),
-#             ("alternating_featurettes", blocks.AltLrgMediaBlock()),
-#             # ("cta", blocks.CTABlock()), #@TODO would we like a call to action stream?
-#         ],
-#         null=True,
-#         blank=True,
-#     )
-
-#     content_panels = Page.content_panels + [
-       
-#         MultiFieldPanel([
-#             # InlinePanel("basic_carousel", max_num=7, min_num=3, label="Carousel Image"),
-#             StreamFieldPanel("content"),
-#         ],heading ="Page Contents"),
-
-#     ]
-#     class meta: #noqa
-#         verbose_name = "Basic Page"
-
-"""
-Orderable classes 
-"""
-# class BasicCarouselImages(Orderable):
-#     page = ParentalKey("blog.BasicPage", related_name = "basic_carousel")
-#     basic_carousel = models.ForeignKey(
-#         "wagtailimages.Image",
-#         null =True,
-#         blank=False,
-#         on_delete=models.SET_NULL,
-#         related_name="+"
-#     )
-#     panels = [
-#         ImageChooserPanel("basic_carousel")
-#     ]
