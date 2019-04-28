@@ -1,0 +1,33 @@
+{% load wagtailimages_tags %}
+
+    <div class="container">
+        <ul class="list-unstyled">
+            {% for element in self.mediaList %}
+                {% image element.l_image fill-85x85-c75 as l_img %}
+                {% image element.r_image fill-85x85-c75 as r_img %}
+
+
+                    <li class="media mr-3">
+                        <img src="{{ r_img.url }}" class="align-self-center mr-3" alt="{{ r_img.alt }}">
+                        <div class="media-body">
+
+                        <h5 class="mt-0 mb-1 text-left">{{ element.r_title }}</h5>
+                        {{element.r_paragraph}}
+                        </div>
+                    </li>
+                    <li class="media my-4">
+                        
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1 text-right">{{ element.l_title }}</h5>
+                            
+                            {{element.l_paragraph}}
+                            
+                        </div>
+                        <img src="{{ l_img.url }}" class="align-self-center mr-3" alt="{{ l_img.alt }}">
+                    </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+
+

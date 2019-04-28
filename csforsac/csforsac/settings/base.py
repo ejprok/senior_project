@@ -24,18 +24,18 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
+    'adapt',
     'events',
+    'home',
     'search',
+    'streams',
+    'blog',
+
     'rest_framework',
     'geoposition',
     'django_google_maps',
 
-
     'wagtail.contrib.routable_page',
-
-    'blog',
-    
     
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',

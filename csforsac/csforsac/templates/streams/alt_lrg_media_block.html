@@ -1,0 +1,41 @@
+{% load wagtailimages_tags %}
+
+    <div class="container">
+        <ul class="list-unstyled">
+            {% for element in self.mediaList %}
+
+                {% image element.l_image fill-445x445-c75 as l_img %}
+                {% image element.r_image fill-445x445-c75 as r_img %}
+
+
+                <hr class="featurette-divider">
+
+                    <div class="row featurette wow bounceInRight">
+                        <div class="col-md-7">
+                            <h2 class="featurette-heading">{{ element.r_title }} </h2>
+                            <span class="featurette-heading text-muted">{{ element.r_sub_title }}</span>
+                            <p class="lead">{{ element.r_paragraph }}</p>
+                        </div>
+                        <div class="col-md-5">
+                            <img class="featurette-image img-fluid mx-auto" src="{{ l_img.url }}" alt="{{ l_img.alt }}">
+                        </div>
+                        </div>
+
+                        <hr class="featurette-divider">
+
+                        <div class="row featurette wow bounceInLeft">
+                        <div class="col-md-7 order-md-2">
+                            <h2 class="featurette-heading"> {{ element.l_title }} </h2>
+                            <span class="featurette-heading text-muted">{{ element.l_sub_title }}</span>
+                            <p class="lead">{{ element.l_paragraph }}</p>
+                        </div>
+                        <div class="col-md-5 order-md-1">
+                            <img class="featurette-image img-fluid mx-auto" src="{{ r_img.url }}" alt="{{r_img.alt }}">
+                        </div>
+                    </div>
+
+            {% endfor %}
+        </ul>
+    </div>
+
+

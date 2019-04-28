@@ -15,16 +15,19 @@
     <div class='container'>
         <img src='{{header_image.url}}' alt="{{ header_image.alt }}" style='{{ header_image.width }}'>
 
-        {% for block in required_content %}
+        {% for block in self.content %}
             {% include_block block %}
-
-        {% endfor %}
-
-        {% for block in page.content %}
-            {% include_block block %}
-
         {% endfor%}
 
+        <!--This is an example of how to add content in a dynamic way
+        Just call self.NameOfYourContent whereever you'd like to put 
+        it and you can style it how you'd like-->
+        {% comment %}         
+            <div> stuff </div>
+            {% for block in self.contentTwo %}
+                {% include_block block %}
+            {% endfor%} 
+        {% endcomment %}
     </div>
 
 {% endblock %}

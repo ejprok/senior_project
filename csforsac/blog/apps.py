@@ -1,5 +1,5 @@
-from django.apps import AppConfig
+# from django.apps import AppConfig
 
 
-class BlogConfig(AppConfig):
-    name = 'blog'
+# class BlogConfig(AppConfig):
+#     name = 'blog'
