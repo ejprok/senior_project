@@ -44,7 +44,7 @@ class BlogListingPage(Page):
             context = super().get_context(request, *args, **kwargs)
             all_posts = BlogFocusPage.objects.live().public().order_by('-first_published_at')
             
-            paginator = Paginator(all_posts, 2)
+            paginator = Paginator(all_posts, 1)
             page = request.GET.get("page")
             try:
                 posts = paginator.page(page)

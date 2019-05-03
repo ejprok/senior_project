@@ -68,9 +68,9 @@ class CardBlock(blocks.StructBlock):
 
 
 class FreeCarouselBlock(blocks.StructBlock):
-    """ Large carousel with optional heading"""
+    """ Large carousel with optional headings """
     
-    pages = blocks.ListBlock(
+    carousel_pages = blocks.ListBlock(
         blocks.StructBlock(
             [
                 ("image", ImageChooserBlock(required=True)),
@@ -80,7 +80,7 @@ class FreeCarouselBlock(blocks.StructBlock):
         )
     )
     class Meta:  # noqa
-        template = "streams/nav_title_link.html" 
+        template = "streams/carousel_block.html" 
         icon ="image"
 
 
@@ -108,7 +108,7 @@ class AltLrgMediaBlock(blocks.StructBlock):
 
 
 class LeftSmMediaBlock(blocks.StructBlock):
-    """ Large carousel with optional heading"""
+    """ @TODO description"""
 
     mediaList = blocks.ListBlock(
         blocks.StructBlock(
@@ -124,7 +124,7 @@ class LeftSmMediaBlock(blocks.StructBlock):
         icon ="image"
 
 class AltSmMediaBlock(blocks.StructBlock):
-    """ Large carousel with optional heading"""
+    """ @TODO description"""
 
     mediaList = blocks.ListBlock(
         blocks.StructBlock(
