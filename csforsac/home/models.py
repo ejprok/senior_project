@@ -30,11 +30,6 @@ class HomePage(Page):
         FieldPanel('carousel_3_header'),
         FieldPanel('carousel_3_body'),
     ]
-    # def home_page(self, request, *args, **kwargs):
-    #     response = TemplateResponse(
-    #         request, 'home/home_page.html'
-    #     )
-    #     return response
 
 
 class AboutPage(Page):
@@ -44,11 +39,6 @@ class AboutPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('body'),
     ]
-    # def about_page(self, request, *args, **kwargs):
-    #     response = TemplateResponse(
-    #         request, 'home/about_page.html'
-    #     )
-    #     return response
 
 class ContactPage(Page):
     tempalate = 'home/contact_page.html'
@@ -70,11 +60,6 @@ class ContactPage(Page):
         FieldPanel('address_title'),
         FieldPanel('address_sub_info'),
     ]
-    # def contact_page(self, request, *args, **kwargs):
-    #     response = TemplateResponse(
-    #         request, 'home/contact_page.html'
-    #     )
-    #     return response
 
 
 class LearnPage(Page):
@@ -84,11 +69,6 @@ class LearnPage(Page):
         FieldPanel('body'),
     ]
  
-    # def learn_page(self, request, *args, **kwargs):
-    #     response = TemplateResponse(
-    #         request, 'home/learn_page.html'
-    #     )
-    #     return response
 
 
 class CollaboratePage(Page):
@@ -98,11 +78,6 @@ class CollaboratePage(Page):
         FieldPanel('body'),
     ]
  
-    # def collab_page(self, request, *args, **kwargs):
-    #     response = TemplateResponse(
-    #         request, 'home/collaborate_page.html'
-    #     )
-    #     return response
 
 
 class SupportPage(Page):
@@ -112,39 +87,8 @@ class SupportPage(Page):
         FieldPanel('body'),
     ]
  
-    # def support_page(self, request, *args, **kwargs):
-    #     response = TemplateResponse(
-    #         request, 'home/support_page.html'
-    #     )
-    #     return response
         
         
-
-# class EventsPage(Page):
-#     body = models.CharField(max_length=255, blank=True)
-#     content_panels = Page.content_panels + [
-#         FieldPanel('body'),
-#     ]
-
-#     def get_context(self, request):
-#         all_entries = Event.objects.all()
-
-#         context = { 'events' : all_entries}
-#         return context
-        
-        
-# class MapPage(Page):
-#     body = models.CharField(max_length=255, blank=True)
-#     content_panels = Page.content_panels + [
-#         FieldPanel('body'),
-#     ]
-
-#     def get_context(self, request):
-#         all_entries = Event.objects.all()
-
-#         context = { 'events' : all_entries}
-#         return context
-
 
 """
 Orderable classes 
