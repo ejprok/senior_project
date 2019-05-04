@@ -30,6 +30,29 @@ class EventsPage(Page):
         context = { 'events' : all_entries}
         return context
        
+class EventFocusPage(Page):
+	description = models.CharField(max_length=255, blank=True)
+	
+	start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True)
+	end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True)
+	start_time = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
+	end_time = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
+	
+	content_panels = Page.content_panels + [
+	    FieldPanel('description'),
+	    FieldPanel('start_date'),
+	    FieldPanel('end_date'),
+	    FieldPanel('start_time'),
+	    FieldPanel('end_time'),
+	]
+	
+	def get_context(self, request):
+	    all_entries = Event.objects.all()
+	
+	    context = { 'events' : all_entries}
+	    return context
+	   
+
 
 class Event(models.Model):
     title  = models.CharField(max_length=200)
