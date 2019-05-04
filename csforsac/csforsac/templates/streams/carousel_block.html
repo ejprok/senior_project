@@ -1,0 +1,42 @@
+{% load wagtailimages_tags %}
+
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+   {% comment %} <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+   </ol> {% endcomment %}
+    <div class="carousel-inner">
+
+        {% for carousel_page in self.carousel_pages %}
+            
+            {% image carousel_page.image fill-500x500-c75 as img %}
+                 <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %}">
+                
+                    <img class="d-block w-100" src="{{ img.url }}" alt="{{ img.alt }}">
+                    <div class="container">
+                        <div class="carousel-caption text-left">
+                            {% if carousel_page.title %}
+                                <h1>{{ carousel_page.title }}</h1>
+                            {% endif  %}
+                            {% if carousel_page.sub_title %}
+                                <p>{{ carousel_page.sub_title }}</p>
+                            {% endif  %}
+
+                        </div>
+                    </div>
+                </div>
+
+        {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>

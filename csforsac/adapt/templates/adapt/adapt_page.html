@@ -6,11 +6,14 @@
 
 {% block content %}
 
-    <div class="container"> 
+        {% for block in page.header_content %}
+            {% include_block block %}
+        {% endfor %} 
 
-            {% for block in self.content %}
-                {% include_block block %}
-            {% endfor %}
-                
+    <div class="container"> 
+        {% for block in self.body %}
+            {% include_block block %}
+        {% endfor %}
     </div>
+
 {% endblock %}

@@ -46,14 +46,14 @@
 
                             {% if post.has_previous %}
                                 <li class="page-item">
-                                    <a href="?page={{ posts.previous_page_number }}" class="page-link">
+                                    <a href="?page={{ posts.previous_page_number }}" class="page-link" aria-label="Previous">
                                         <span>&laquo;</span>
                                     </a>
                                 </li>
                             {% endif %}
                             
                             {% for page_num in posts.paginator.page_range %}
-                                <li class="page-item {% if page_num == posts.number %} active{% endif %}">
+                                <li class="page-item {% if page_num == posts.number %} active {% endif %}">
                                     <a href="?page={{ page_num }}" class="page-link">
                                     {{ page_num }}
                                 </a>
@@ -61,7 +61,7 @@
 
                             {% if post.has_next %}
                             <li class="page-item">
-                                <a href="?page={{ posts.next_page_number }}" class="page-link">
+                                <a href="?page={{ posts.next_page_number }}" class="page-link" aria-label="Next">
                                     <span>&raquo;</span>
                                 </a>
                             </li>

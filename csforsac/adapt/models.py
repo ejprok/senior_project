@@ -13,9 +13,17 @@ from wagtail.core.models import Page
 class AdaptPage(RoutablePageMixin, Page):
     tempalate = "adapt/adapt_page.html"
 
-    content = StreamField(
+
+    header_content = StreamField(
         [
             ("free_carousel", custom_blocks.FreeCarouselBlock()),
+        ],
+        null=True,
+        blank=True,
+    )
+
+    body = StreamField(
+        [
             ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
             ("full_richtext", custom_blocks.RichtextBlock()),
             ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
@@ -28,11 +36,14 @@ class AdaptPage(RoutablePageMixin, Page):
         null=True,
         blank=True,
     )
-
     content_panels = Page.content_panels + [
        
         MultiFieldPanel([
-            StreamFieldPanel("content"),
+            StreamFieldPanel("header_content"),
+        ],heading ="Header"),
+
+        MultiFieldPanel([
+            StreamFieldPanel("body"),
         ],heading ="Page Contents"),
 
     ]

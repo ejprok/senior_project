@@ -5,7 +5,7 @@ from django import forms
 # from wagtail.core import blocks
 from streams import custom_blocks # custom blocks
 
-from wagtail.contrib.routable_page.models import RoutablePageMixin, route
+from wagtail.contrib.routable_page.models import route #, RoutablePageMixin
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, InlinePanel, MultiFieldPanel
@@ -14,7 +14,8 @@ from wagtail.core.blocks import RichTextBlock
 
 from events.models import Event
 
-class HomePage(RoutablePageMixin, Page):
+class HomePage(Page):
+    tempalate = 'home/home_page.html'
     carousel_1_header = models.TextField(max_length=255, blank=True)
     carousel_1_body = models.TextField(max_length=255, blank=True)
     carousel_2_header = models.TextField(max_length=255, blank=True)
@@ -29,14 +30,10 @@ class HomePage(RoutablePageMixin, Page):
         FieldPanel('carousel_3_header'),
         FieldPanel('carousel_3_body'),
     ]
-    def home_page(self, request, *args, **kwargs):
-        response = TemplateResponse(
-            request, 'home/home_page.html'
-        )
-        return response
 
 
-class AboutPage(RoutablePageMixin, Page):
+class AboutPage(Page):
+    tempalate = 'home/about_page.html'
     main_title = models.TextField(max_length=255, blank=True)
     quote1 = models.TextField(max_length=255, blank=True)
     quote2 = models.TextField(max_length=400, blank=True)
@@ -51,6 +48,7 @@ class AboutPage(RoutablePageMixin, Page):
     goal1 = models.TextField(max_length=200, blank=True)
     goal2 = models.TextField(max_length=200, blank=True)
     goal3 = models.TextField(max_length=200, blank=True)
+
     content_panels = Page.content_panels + [
         FieldPanel('main_title'),
         FieldPanel('quote1'),
@@ -67,13 +65,9 @@ class AboutPage(RoutablePageMixin, Page):
         FieldPanel('goal2'),
         FieldPanel('goal3'),
     ]
-    def about_page(self, request, *args, **kwargs):
-        response = TemplateResponse(
-            request, 'home/about_page.html'
-        )
-        return response
 
-class ContactPage(RoutablePageMixin, Page):
+class ContactPage(Page):
+    tempalate = 'home/contact_page.html'
     header  = models.TextField(max_length=255, blank=True)
     subheader = models.TextField(max_length=255, blank=True)
     email_title = models.TextField(max_length=255, blank=True)
@@ -92,78 +86,35 @@ class ContactPage(RoutablePageMixin, Page):
         FieldPanel('address_title'),
         FieldPanel('address_sub_info'),
     ]
-    def contact_page(self, request, *args, **kwargs):
-        response = TemplateResponse(
-            request, 'home/contact_page.html'
-        )
-        return response
 
 
-class LearnPage(RoutablePageMixin, Page):
+class LearnPage(Page):
+    template = 'home/learn_page.html'
     body = models.CharField(max_length=255, blank=True)
     content_panels = Page.content_panels + [
         FieldPanel('body'),
     ]
  
-    def learn_page(self, request, *args, **kwargs):
-        response = TemplateResponse(
-            request, 'home/learn_page.html'
-        )
-        return response
 
 
-class CollaboratePage(RoutablePageMixin, Page):
+class CollaboratePage(Page):
+    template = 'home/collaborate_page.html'
     body = models.CharField(max_length=255, blank=True)
     content_panels = Page.content_panels + [
         FieldPanel('body'),
     ]
  
-    def collab_page(self, request, *args, **kwargs):
-        response = TemplateResponse(
-            request, 'home/collaborate_page.html'
-        )
-        return response
 
 
-class SupportPage(RoutablePageMixin, Page):
+class SupportPage(Page):
+    template = 'home/collaborate_page.html'
     body = models.CharField(max_length=255, blank=True)
     content_panels = Page.content_panels + [
         FieldPanel('body'),
     ]
  
-    def support_page(self, request, *args, **kwargs):
-        response = TemplateResponse(
-            request, 'home/support_page.html'
-        )
-        return response
         
         
-
-class EventsPage(Page):
-    body = models.CharField(max_length=255, blank=True)
-    content_panels = Page.content_panels + [
-        FieldPanel('body'),
-    ]
-
-    def get_context(self, request):
-        all_entries = Event.objects.all()
-
-        context = { 'events' : all_entries}
-        return context
-        
-        
-class MapPage(Page):
-    body = models.CharField(max_length=255, blank=True)
-    content_panels = Page.content_panels + [
-        FieldPanel('body'),
-    ]
-
-    def get_context(self, request):
-        all_entries = Event.objects.all()
-
-        context = { 'events' : all_entries}
-        return context
-
 
 """
 Orderable classes 
