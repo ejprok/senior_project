@@ -8,10 +8,23 @@
     color: black;
 }
 
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+    background-color: orange !important;
+    border-color: gray;
+    color: white;
+}
+
 .prev, .next, .today {
 	margin: 0px 5px 0px 5px !important;
 }
 
 .event-calendar {
 	margin-bottom: 50px;
+}
+
+.list-group{
+    max-height: 600px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
 }

@@ -18,14 +18,14 @@ from django_google_maps.fields import AddressField, GeoLocationField
 
 from django.urls import reverse
 
-class EventsPage(Page):
+class EventListingPage(Page):
     body = models.CharField(max_length=255, blank=True)
     content_panels = Page.content_panels + [
         FieldPanel('body'),
     ]
 
     def get_context(self, request):
-        all_entries = Event.objects.all()
+        all_entries = EventFocusPage.objects.all()
 
         context = { 'events' : all_entries}
         return context
@@ -46,12 +46,7 @@ class EventFocusPage(Page):
 	    FieldPanel('end_time'),
 	]
 	
-	def get_context(self, request):
-	    all_entries = Event.objects.all()
-	
-	    context = { 'events' : all_entries}
-	    return context
-	   
+
 
 
 class Event(models.Model):
