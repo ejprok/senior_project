@@ -16,6 +16,9 @@ from events.models import Event
 
 class HomePage(Page):
     tempalate = 'home/home_page.html'
+    # add pages into subpage_types in order to allow them to be child pages under the home_page
+    # subpage_types = ['AboutPage','ContactPage','LearnPage','CollaboratePage','SupportPage','Implementation','adapt.AdaptPage']
+    max_count = 1
     carousel_1_header = models.TextField(max_length=255, blank=True)
     carousel_1_body = models.TextField(max_length=255, blank=True)
     carousel_2_header = models.TextField(max_length=255, blank=True)
@@ -34,6 +37,10 @@ class HomePage(Page):
 
 class AboutPage(Page):
     tempalate = 'home/about_page.html'
+    max_count = 1
+    # Add pages to this parent_page_types list in order for this "about_page" to be a child page of additional pages.
+    parent_page_types = ['home.HomePage']
+
     main_title = models.TextField(max_length=255, blank=True)
     quote1 = models.TextField(max_length=255, blank=True)
     quote2 = models.TextField(max_length=400, blank=True)
@@ -68,6 +75,7 @@ class AboutPage(Page):
 
 class ContactPage(Page):
     tempalate = 'home/contact_page.html'
+    max_count = 1
     header  = models.TextField(max_length=255, blank=True)
     subheader = models.TextField(max_length=255, blank=True)
     email_title = models.TextField(max_length=255, blank=True)
@@ -89,6 +97,7 @@ class ContactPage(Page):
 
 
 class LearnPage(Page):
+    max_count = 1
     template = 'home/learn_page.html'
     body = models.CharField(max_length=255, blank=True)
     content_panels = Page.content_panels + [
@@ -99,7 +108,7 @@ class LearnPage(Page):
 
 class CollaboratePage(Page):
     template = 'home/collaborate_page.html'
-
+    max_count = 1
     header_content = StreamField(
             [
                 ("free_carousel", custom_blocks.FreeCarouselBlock()),
@@ -185,6 +194,7 @@ class CollaboratePage(Page):
 
 class SupportPage(Page):
     template = 'home/support_page.html'
+    max_count = 1
     header_content = StreamField(
         [
             ("free_carousel", custom_blocks.FreeCarouselBlock()),
@@ -223,6 +233,7 @@ class SupportPage(Page):
     ]
 
 class Implementation(Page):
+    max_count = 1
     template = 'home/implementation_page.html'
 
     header_content = StreamField(

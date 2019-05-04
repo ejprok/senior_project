@@ -13,12 +13,13 @@
             {% include_block block %}
         {% endfor %}
     </div>
-
+{% comment %} Anchor here {% endcomment %}
     <div class="container"> 
         {% for block in self.middle_school %}
             {% include_block block %}
         {% endfor %}
     </div>
+{% comment %} Anchor here {% endcomment %}
 
     <div class="container"> 
         {% for block in self.high_school %}
