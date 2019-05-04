@@ -31,6 +31,7 @@ class AdaptPage(RoutablePageMixin, Page):
             ("alt_small_media_list", custom_blocks.AltSmMediaBlock()),
             ("embeding", custom_blocks.EmbededBlock()),
             ("cards", custom_blocks.CardBlock()),
+            # ("card_row", custom_blocks.CardRow()),
             ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
             ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
         ],
