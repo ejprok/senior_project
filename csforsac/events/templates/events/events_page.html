@@ -1,0 +1,56 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/equinox.css' %}"/>
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<div class="scrollbar" id="ex4">
+<div class="content">
+   <div id="menuwrapper">
+      <ul>
+
+	  	{% for e in events %}
+
+         <li>
+            <a href="#">{{ e.title }}</a>
+            	<p>{{e.description}}</p>
+         </li>
+
+		{% endfor %}
+
+      </ul>
+   </div>
+</div>
+
+<div class="container">
+	<h1>Calendar of Events</h1>
+	<div class="event-calendar"></div>	
+</div>
+
+
+
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="{% static 'js/equinox.js' %}"></script>
+<script src="{% static 'js/events_page.js' %}"></script>
+
+
+{% endblock %}

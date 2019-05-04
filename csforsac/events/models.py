@@ -1,10 +1,35 @@
 from django.db import models
-# from events.widgets import *
+from django.template.response import TemplateResponse
+from django import forms
+
+# from wagtail.core import blocks
+from streams import custom_blocks # custom blocks
+
+from wagtail.contrib.routable_page.models import RoutablePageMixin, route
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.core.models import Page
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.core.blocks import RichTextBlock
+
+
 from django_google_maps.fields import AddressField, GeoLocationField
 
-# Create your models here.
-from django.db import models
+
 from django.urls import reverse
+
+class EventsPage(Page):
+    body = models.CharField(max_length=255, blank=True)
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+    ]
+
+    def get_context(self, request):
+        all_entries = Event.objects.all()
+
+        context = { 'events' : all_entries}
+        return context
+       
 
 class Event(models.Model):
     title  = models.CharField(max_length=200)
