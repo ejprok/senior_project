@@ -84,17 +84,31 @@ class FreeCarouselBlock(blocks.StructBlock):
         icon ="image"
 
 
-class AltLrgMediaBlock(blocks.StructBlock):
-    """ Large media blocks (FEATURETTES) with optional heading"""
+class LrgLeftMediaBlock(blocks.StructBlock):
+    """ Large media blocks (FEATURETTES) with optional heading, Image on left"""
+
+    mediaList = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("l_image", ImageChooserBlock(required=True)),
+                ("r_title", blocks.CharBlock(required=False)),
+                ("r_sub_title", blocks.CharBlock(required=False)),
+                ("r_paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 450, help_text="might look with less than 200 characters")),
+
+            ]
+        )
+    )
+    class Meta:  # noqa
+        template = "streams/lrg_left_media_block.html"
+        icon ="image"
+
+class LrgRightMediaBlock(blocks.StructBlock):
+    """ Large media block (FEATURETTE) with optional heading, Image on right"""
 
     mediaList = blocks.ListBlock(
         blocks.StructBlock(
             [
                 ("r_image", ImageChooserBlock(required=True, help_text="must be at least 445x445")),
-                ("r_title", blocks.CharBlock(required=False)),
-                ("r_sub_title", blocks.CharBlock(required=False, max_length = 20)),
-                ("r_paragraph", blocks.TextBlock(required=False, min_length = 50, max_length =450)),
-                ("l_image", ImageChooserBlock(required=True)),
                 ("l_title", blocks.CharBlock(required=False)),
                 ("l_sub_title", blocks.CharBlock(required=False)),
                 ("l_paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 450, help_text="might look with less than 200 characters")),
@@ -103,7 +117,7 @@ class AltLrgMediaBlock(blocks.StructBlock):
         )
     )
     class Meta:  # noqa
-        template = "streams/alt_lrg_media_block.html"
+        template = "streams/lrg_right_media_block.html"
         icon ="image"
 
 
