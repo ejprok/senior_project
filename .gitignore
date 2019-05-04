@@ -5,6 +5,19 @@
 /csforsac/blog/migrations/*
 /csforsac/adapt/migrations/*
 /csforsac/streams/migrations/*
+/csforsac/blog/migrations/__init__.py
+/csforsac/events/migrations/__init__.py
+/csforsac/home/migrations/__init__.py
+
+
+#don't ignore these files
+!/csforsac/home/migrations/__init__.py
+!/csforsac/events/migrations/__init__.py
+!/csforsac/blog/migrations/__init__.py
+!/csforsac/adapt/migrations/__init__.py
+!/csforsac/streams/migrations/__init__.py
+
+# ...even if they are in subdirectories
 
 ### OSX ###
 .DS_Store

@@ -75,16 +75,39 @@ class ContactPage(Page):
     phone_title = models.TextField(max_length=255, blank=True)
     phone_sub_info = models.TextField(max_length=255, blank=True)
     address_title = models.TextField(max_length=255, blank=True)
-    address_sub_info = models.TextField(max_length=255, blank=True)
+    address_sub_info = models.TextField(max_length=255, blank=True)   
+    body = StreamField(
+        [
+            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
+            ("full_richtext", custom_blocks.RichtextBlock()),
+            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
+            ("left_media_list", custom_blocks.LeftSmMediaBlock()),
+            ("alt_small_media_list", custom_blocks.AltSmMediaBlock()),
+            ("embeding", custom_blocks.EmbededBlock()),
+            ("cards", custom_blocks.CardBlock()),
+            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
+            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
+        ],
+        null=True,
+        blank=True,
+    )
+    
     content_panels = Page.content_panels + [
-        FieldPanel('header'),
-        FieldPanel('subheader'),
-        FieldPanel('email_title'),
-        FieldPanel('email_sub_info'),
-        FieldPanel('phone_title'),
-        FieldPanel('phone_sub_info'),
-        FieldPanel('address_title'),
-        FieldPanel('address_sub_info'),
+        MultiFieldPanel([
+            FieldPanel('header'),
+            FieldPanel('subheader'),
+            FieldPanel('email_title'),
+            FieldPanel('email_sub_info'),
+            FieldPanel('phone_title'),
+            FieldPanel('phone_sub_info'),
+            FieldPanel('address_title'),
+            FieldPanel('address_sub_info'),
+        ],heading='Contact Info'),
+
+        MultiFieldPanel([
+            StreamFieldPanel("body"),
+        ],heading ="Page Contents"),
+
     ]
 
 

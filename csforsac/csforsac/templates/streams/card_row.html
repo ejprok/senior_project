@@ -1,0 +1,28 @@
+{% load wagtailimages_tags %}
+
+<div class="container mb-sm-5 mt-sm-5">
+    <div class="row">
+
+            {% for card in self.cards %}
+            <div class="col-sm">
+                <div class="card-body">
+                    <h3 class="card-title">{{ card.title_1 }}</h3>
+                    <p class="card-text">{{ card.text_body_1 }}</p>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card-body">
+                    <h3 class="card-title">{{ card.title_2 }}</h3>
+                    <p class="card-text">{{ card.text_body_2 }}</p>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card-body">
+                    <h3 class="card-title">{{ card.title_2 }}</h3>
+                    <p class="card-text">{{ card.text_body_2 }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        
+    </div>
+</div>
