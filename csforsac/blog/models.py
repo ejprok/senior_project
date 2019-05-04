@@ -44,7 +44,7 @@ class BlogListingPage(Page):
             context = super().get_context(request, *args, **kwargs)
             all_posts = BlogFocusPage.objects.live().public().order_by('-first_published_at')
             
-            paginator = Paginator(all_posts, 1)
+            paginator = Paginator(all_posts, 5)
             page = request.GET.get("page")
             try:
                 posts = paginator.page(page)
@@ -97,10 +97,14 @@ class BlogFocusPage(RoutablePageMixin, Page):
             FieldPanel("custom_title"),
             ImageChooserPanel("article_image"),
 
-        ],heading ="titles and header"),
+        ],
+            heading ="titles and header",            
+        ),
         MultiFieldPanel([
             FieldPanel("blog_summary"),
-        ],heading ="Summary"),
+        ],
+            heading ="Summary",
+        ),
 
         MultiFieldPanel([
             StreamFieldPanel("content"),

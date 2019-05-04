@@ -1,0 +1,20 @@
+{% load wagtailimages_tags %}
+
+
+        
+{% image self.banner.image fill-1000x500 as img %}            
+
+    <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: 100% 100%; color: #fff !important"> 
+    
+         {% if self.banner.title %}
+            <h1 class='display-4'> {{ self.banner.title }} </h1>
+        {% endif %}
+
+        {% if self.banner.sub_title %}
+            <p>{{ self.banner.sub_title }}</p>
+        {% endif  %}
+
+    </div>
+
+    
+

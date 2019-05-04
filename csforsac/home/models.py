@@ -75,39 +75,16 @@ class ContactPage(Page):
     phone_title = models.TextField(max_length=255, blank=True)
     phone_sub_info = models.TextField(max_length=255, blank=True)
     address_title = models.TextField(max_length=255, blank=True)
-    address_sub_info = models.TextField(max_length=255, blank=True)   
-    body = StreamField(
-        [
-            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
-            ("full_richtext", custom_blocks.RichtextBlock()),
-            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
-            ("left_media_list", custom_blocks.LeftSmMediaBlock()),
-            ("alt_small_media_list", custom_blocks.AltSmMediaBlock()),
-            ("embeding", custom_blocks.EmbededBlock()),
-            ("cards", custom_blocks.CardBlock()),
-            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
-            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
-        ],
-        null=True,
-        blank=True,
-    )
-    
+    address_sub_info = models.TextField(max_length=255, blank=True)
     content_panels = Page.content_panels + [
-        MultiFieldPanel([
-            FieldPanel('header'),
-            FieldPanel('subheader'),
-            FieldPanel('email_title'),
-            FieldPanel('email_sub_info'),
-            FieldPanel('phone_title'),
-            FieldPanel('phone_sub_info'),
-            FieldPanel('address_title'),
-            FieldPanel('address_sub_info'),
-        ],heading='Contact Info'),
-
-        MultiFieldPanel([
-            StreamFieldPanel("body"),
-        ],heading ="Page Contents"),
-
+        FieldPanel('header'),
+        FieldPanel('subheader'),
+        FieldPanel('email_title'),
+        FieldPanel('email_sub_info'),
+        FieldPanel('phone_title'),
+        FieldPanel('phone_sub_info'),
+        FieldPanel('address_title'),
+        FieldPanel('address_sub_info'),
     ]
 
 
@@ -122,20 +99,167 @@ class LearnPage(Page):
 
 class CollaboratePage(Page):
     template = 'home/collaborate_page.html'
-    body = models.CharField(max_length=255, blank=True)
+
+    header_content = StreamField(
+            [
+                ("free_carousel", custom_blocks.FreeCarouselBlock()),
+            ],
+            null=True,
+            blank=True,
+        )
+    elementary = StreamField(
+        [
+            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
+            ("full_richtext", custom_blocks.RichtextBlock()),
+            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
+            ("left_media_list", custom_blocks.LeftSmMediaBlock()),
+            ("alt_small_media_list", custom_blocks.AltSmMediaBlock()),
+            ("embeding", custom_blocks.EmbededBlock()),
+            ("cards", custom_blocks.CardBlock()),
+            # ("card_row", custom_blocks.CardRow()),
+            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
+            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
+        ],
+        null=True,
+        blank=False,
+    )
+    middle_school = StreamField(
+        [
+            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
+            ("full_richtext", custom_blocks.RichtextBlock()),
+            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
+            ("left_media_list", custom_blocks.LeftSmMediaBlock()),
+            ("alt_small_media_list", custom_blocks.AltSmMediaBlock()),
+            ("embeding", custom_blocks.EmbededBlock()),
+            ("cards", custom_blocks.CardBlock()),
+            # ("card_row", custom_blocks.CardRow()),
+            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
+            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
+        ],
+        null=True,
+        blank=False,
+    )
+    high_school = StreamField(
+        [
+            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
+            ("full_richtext", custom_blocks.RichtextBlock()),
+            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
+            ("left_media_list", custom_blocks.LeftSmMediaBlock()),
+            ("alt_small_media_list", custom_blocks.AltSmMediaBlock()),
+            ("embeding", custom_blocks.EmbededBlock()),
+            ("cards", custom_blocks.CardBlock()),
+            # ("card_row", custom_blocks.CardRow()),
+            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
+            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
+        ],
+        null=True,
+        blank=False,
+    )
     content_panels = Page.content_panels + [
-        FieldPanel('body'),
+       
+        MultiFieldPanel([
+            StreamFieldPanel("header_content"),
+        ], heading ="Header (optional)",        
+        classname="collapsible collapsed"),
+
+        MultiFieldPanel([
+            StreamFieldPanel("elementary"),
+        ], heading ="elementary",
+        classname="collapsible collapsed"
+        ),
+
+        MultiFieldPanel([
+            StreamFieldPanel("middle_school"),
+        ], heading ="Middle School",
+        classname="collapsible collapsed"
+        ),
+
+        MultiFieldPanel([
+            StreamFieldPanel("high_school"),
+        ], heading ="High School",
+        classname="collapsible collapsed"
+        ),
     ]
  
 
 
 class SupportPage(Page):
-    template = 'home/collaborate_page.html'
-    body = models.CharField(max_length=255, blank=True)
+    template = 'home/support_page.html'
+    header_content = StreamField(
+        [
+            ("free_carousel", custom_blocks.FreeCarouselBlock()),
+            ("wide_banner", custom_blocks.BannerWideImageBlock()),
+        ],
+        null=True,
+        blank=True,
+    )
+
+    body = StreamField(
+        [
+            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
+            ("full_richtext", custom_blocks.RichtextBlock()),
+            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
+            ("left_media_list", custom_blocks.LeftSmMediaBlock()),
+            ("alt_small_media_list", custom_blocks.AltSmMediaBlock()),
+            ("embeding", custom_blocks.EmbededBlock()),
+            ("cards", custom_blocks.CardBlock()),
+            # ("card_row", custom_blocks.CardRow()),
+            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
+            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
+        ],
+        null=True,
+        blank=True,
+    )
     content_panels = Page.content_panels + [
-        FieldPanel('body'),
+       
+        MultiFieldPanel([
+            StreamFieldPanel("header_content"),
+        ],heading ="Header"),
+
+        MultiFieldPanel([
+            StreamFieldPanel("body"),
+        ],heading ="Page Contents"),
+
     ]
- 
+
+class Implementation(Page):
+    template = 'home/implementation_page.html'
+
+    header_content = StreamField(
+        [
+            ("free_carousel", custom_blocks.FreeCarouselBlock()),
+        ],
+        null=True,
+        blank=True,
+    )
+
+    body = StreamField(
+        [
+            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
+            ("full_richtext", custom_blocks.RichtextBlock()),
+            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
+            ("left_media_list", custom_blocks.LeftSmMediaBlock()),
+            ("alt_small_media_list", custom_blocks.AltSmMediaBlock()),
+            ("embeding", custom_blocks.EmbededBlock()),
+            ("cards", custom_blocks.CardBlock()),
+            # ("card_row", custom_blocks.CardRow()),
+            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
+            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
+        ],
+        null=True,
+        blank=True,
+    )
+    content_panels = Page.content_panels + [
+        
+        MultiFieldPanel([
+            StreamFieldPanel("header_content"),
+        ],heading ="Header"),
+
+        MultiFieldPanel([
+            StreamFieldPanel("body"),
+        ],heading ="Page Contents"),
+
+    ]
         
         
 
