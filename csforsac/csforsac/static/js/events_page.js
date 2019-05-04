@@ -20,6 +20,7 @@ function createCalendarEvents(events) {
 		preparedEvents[e]["end"] = events[e]["end_date"] + " " + events[e]["end_time"];
 		
 		preparedEvents[e]["title"] = events[e]["title"];
+		preparedEvents[e]["url"] = "" + events[e]["slug"];
 		
 	}
 	console.log(preparedEvents);
