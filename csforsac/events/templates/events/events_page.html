@@ -8,6 +8,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/equinox.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/events_page.css' %}"/>
 
 {% endblock %}
 
@@ -25,6 +26,7 @@
 	  	{% for e in events %}
 
          <li>
+         
             <a href="#">{{ e.title }}</a>
             	<p>{{e.description}}</p>
          </li>
@@ -36,7 +38,10 @@
 </div>
 
 <div class="container">
-	<h1>Calendar of Events</h1>
+	<div class="text-center">
+		<h1>Calendar of Events</h1>
+	</div>
+	
 	<div class="event-calendar"></div>	
 </div>
 

@@ -191,9 +191,9 @@
 		var header = $('<div class="calendar-header"></div>');
 		header.append('<div class="month-label">' + month.format('MMMM YYYY') + '</div>');
 		header.append('<div class="calendar-actions"></div>');
-		$('.calendar-actions', header).append('<button type="button" class="prev">Previous</button> ');
-		$('.calendar-actions', header).append('<button type="button" class="next">Next</button> ');
-		$('.calendar-actions', header).append('<button type="button" class="today">Today</button> ');
+		$('.calendar-actions', header).append('<button type="button" class="prev btn btn-primary hvr-grow"><span><i class="fa fa-angle-left"></i></span> Previous</button> ');
+		$('.calendar-actions', header).append('<button type="button" class="next btn btn-primary hvr-grow">Next <span><i class="fa fa-angle-right"></i></span></button> ');
+		$('.calendar-actions', header).append('<button type="button" class="today btn btn-primary hvr-grow">Today</button> ');
 		monthHtml.append(header);
 
 		var weeks = $('<div class="month-weeks"></div>');
