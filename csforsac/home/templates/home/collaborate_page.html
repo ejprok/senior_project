@@ -8,23 +8,23 @@
         {% include_block block %}
     {% endfor %} 
 
-    <div class="container"> 
+    <div class="jumbotron" style="background-color:#e6ffff"> 
         {% for block in self.elementary %}
             {% include_block block %}
         {% endfor %}
     </div>
 
-{% comment %} Anchor here {% endcomment %}
-    <hr>
-    <div id="middle_school" class="container"> 
+    <a id="middle_school"></a>
+    <div class="jumbotron" style="background-color:#e6ffe6">     
+    <div style="height: 4px;"></div>
         {% for block in self.middle_school %}
             {% include_block block %}
         {% endfor %}
     </div>
-    
-{% comment %} Anchor here {% endcomment %}
-    <hr>
-    <div id="high_school" class="container"> 
+
+    <a id="high_school"></a>
+    <div  class="containfer-fliud" style="background-color:#fff2e6"> 
+        <div style="height: 4px;"></div>
         {% for block in self.high_school %}
             {% include_block block %}
         {% endfor %}
