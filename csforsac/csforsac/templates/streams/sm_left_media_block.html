@@ -1,17 +1,16 @@
 {% load wagtailimages_tags %}
+{% image self.left_media.img fill-85x85-c75 as img %}
 
-    <div class="container mt-2 mb-2">
-            {% for element in self.mediaList %}
-                {% image element.l_image fill-85x85-c75 as l_img %}
-                <div class="media ">
-                        <div class="media-body">
-                            <h5 class="mt-1 mb-1 text-left">{{ element.r_title }}</h5>
-                            {{element.r_paragraph}}
-                        </div>
-                        
-                        <img src="{{ l_img.url }}" class="ml-3" alt="{{ l_img.alt }}">
-                </div>
-
-            {% endfor %}
+<div class="container mt-2 mb-2">
+    <div class="media">
+        <div class="media-body">
+            <h5 class="mt-1 mb-1 text-left">{{ self.left_media.title }}</h5>
+            {{self.left_media.paragraph}}
+        </div>
+        
+        <img src="{{ img.url }}" class="ml-3" alt="{{ img.alt }}">
     </div>
-
+</div>
+<hr  style=" border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(right, #cccccc, #f2f2f2, #f0f0f0, #cccccc);" >

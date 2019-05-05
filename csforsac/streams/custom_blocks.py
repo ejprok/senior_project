@@ -148,36 +148,31 @@ class LrgRightMediaBlock(blocks.StructBlock):
 
 class SmRightMediaBlock(blocks.StructBlock):
     """ @TODO description """
-    mediaList = blocks.ListBlock(
-        blocks.StructBlock(
-            [
-                ("r_image", ImageChooserBlock(required=True)),
-                ("l_title", blocks.CharBlock(required=False)),
-                ("l_paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 350)),
-            ]
-        )
-    )
+    right_media = blocks.StructBlock(
+    [
+        ("img", ImageChooserBlock(required=True)),
+        ("title", blocks.CharBlock(required=False)),
+        ("paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 350)),
+    ])
     
     class Meta:  # noqa
         template = "streams/sm_right_media_block.html"
         icon ="image"
-
+        label = "Sm Right Leaning Media"
 
 class SmLeftMediaBlock(blocks.StructBlock):
     """ @TODO description """
-    mediaList = blocks.ListBlock(
-        blocks.StructBlock(
-            [
-                ("l_image", ImageChooserBlock(required=True)),
-                ("r_title", blocks.CharBlock(required=False)),
-                ("r_paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 350)),
+    left_media = blocks.StructBlock(
+    [
+        ("img", ImageChooserBlock(required=True)),
+        ("title", blocks.CharBlock(required=False)),
+        ("paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 350)),
+    ])
                 
-            ]
-        )
-    )
     class Meta:  # noqa
         template = "streams/sm_left_media_block.html"
         icon ="image"
+        label = "Sm Left Leaning Media"
 
 
 class BannerWideImageBlock(blocks.StructBlock):
@@ -193,6 +188,7 @@ class BannerWideImageBlock(blocks.StructBlock):
         template = "streams/banner_wide_image_block.html" 
         icon ="image"
 
+# class ThinDivider():
 
 class StreamLists():
     """ This class holds generic lists of stream fields """
@@ -203,16 +199,16 @@ class StreamLists():
     ]
     
     body_list = [
-            ("title_and_Subtitle", TitleAndSubtitle() ),
+            ("centered_title", CenteredTitle()),
+            ("left_title", TitleAndSubtitle() ),
             ("full_richtext", RichtextBlock()),
             ("limited_richtext", LimitedRichtextBlock()),
-            ("embeding", EmbededBlock()),
-            ("cards", CardBlock()),
             ("right_featurettes", LrgRightMediaBlock()),
             ("left_featurettes", LrgLeftMediaBlock()),
-            ("right_media_block", SmRightMediaBlock()),
-            ("left_media_block", SmLeftMediaBlock()),
-            ("centered_title", CenteredTitle()),
+            ("Sm_Right_Media", SmRightMediaBlock()),
+            ("Sm_Left_Media", SmLeftMediaBlock()),
+            ("cards", CardBlock()),
+            ("embeding", EmbededBlock()),
         ]
 
 # class BannerSquareImageBlock(blocks.StructBlock):
