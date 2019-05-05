@@ -15,27 +15,6 @@ from wagtail.core.blocks import RichTextBlock
 from events.models import Event
 
 
-class StreamFieldList():
-    """ This class holds generic lists of stream fields """
-
-    header_stream_fields = [
-        ("free_carousel", custom_blocks.FreeCarouselBlock()),
-        ("wide_banner", custom_blocks.BannerWideImageBlock()),
-    ]
-    
-    body_stream_fields = [
-            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
-            ("full_richtext", custom_blocks.RichtextBlock()),
-            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
-            ("embeding", custom_blocks.EmbededBlock()),
-            ("cards", custom_blocks.CardBlock()),
-            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
-            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
-            ("right_media_block", custom_blocks.SmRightMediaBlock()),
-            ("left_media_block", custom_blocks.SmLeftMediaBlock()),
-            ("centered_title", custom_blocks.CenteredTitle()),
-        ]
-
 class HomePage(Page):
     tempalate = 'home/home_page.html'
 
@@ -131,9 +110,9 @@ class ContactPage(Page):
 class LearnPage(Page):
     max_count = 1
     template = 'home/learn_page.html'
-    header_content = header_content = StreamField(StreamFieldList.header_stream_fields,null=True,blank=True)
+    header_content = StreamField(custom_blocks.StreamLists().header_list,null=True,blank=True)
 
-    body = StreamField(StreamFieldList.body_stream_fields, null=True, blank=False)
+    body = StreamField(custom_blocks.StreamLists().body_list, null=True, blank=False)
     content_panels = Page.content_panels + [
        
         MultiFieldPanel([
@@ -151,11 +130,11 @@ class LearnPage(Page):
 class CollaboratePage(Page):
     template = 'home/collaborate_page.html'
     max_count = 1
-    header_content = StreamField(StreamFieldList.header_stream_fields,null=True, blank=True)
+    header_content = StreamField(custom_blocks.StreamLists().header_list,null=True,blank=True)
 
-    elementary = StreamField(StreamFieldList.body_stream_fields, null=True, blank=False)
-    middle_school = StreamField(StreamFieldList.body_stream_fields, null=True, blank=False)
-    high_school = StreamField(StreamFieldList.body_stream_fields, null=True, blank=False)
+    elementary = StreamField(custom_blocks.StreamLists().body_list, null=True, blank=False)
+    middle_school = StreamField(custom_blocks.StreamLists().body_list, null=True, blank=False)
+    high_school = StreamField(custom_blocks.StreamLists().body_list, null=True, blank=False)
 
     content_panels = Page.content_panels + [
        
@@ -189,9 +168,9 @@ class CollaboratePage(Page):
 class SupportPage(Page):
     template = 'home/support_page.html'
     max_count = 1
-    header_content = StreamField(StreamFieldList.header_stream_fields,null=True,blank=True)
+    header_content = StreamField(custom_blocks.StreamLists().header_list,null=True,blank=True)
 
-    body = StreamField(StreamFieldList.body_stream_fields, null=True, blank=False)
+    body = StreamField(custom_blocks.StreamLists().body_list, null=True, blank=False)
     content_panels = Page.content_panels + [
        
         MultiFieldPanel([
@@ -208,9 +187,9 @@ class ImplementationPage(Page):
     max_count = 1
     template = 'home/implementation_page.html'
 
-    header_content = header_content = StreamField(StreamFieldList.header_stream_fields,null=True,blank=True)
+    header_content = header_content = StreamField(custom_blocks.StreamLists().header_list,null=True,blank=True)
 
-    body = StreamField(StreamFieldList.body_stream_fields, null=True, blank=False)
+    body = StreamField(custom_blocks.StreamLists().body_list, null=True, blank=False)
     content_panels = Page.content_panels + [
         
         MultiFieldPanel([
@@ -223,28 +202,6 @@ class ImplementationPage(Page):
 
     ]
         
-
-class StreamFieldList():
-    """ This class holds generic lists of stream fields """
-
-    header_stream_fields = [
-        ("free_carousel", custom_blocks.FreeCarouselBlock()),
-        ("wide_banner", custom_blocks.BannerWideImageBlock()),
-    ]
-
-    body_stream_fields = [
-            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
-            ("full_richtext", custom_blocks.RichtextBlock()),
-            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
-            ("embeding", custom_blocks.EmbededBlock()),
-            ("cards", custom_blocks.CardBlock()),
-            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
-            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
-            ("right_media_block", custom_blocks.SmRightMediaBlock()),
-            ("left_media_block", custom_blocks.SmLeftMediaBlock()),
-            ("centered_title", custom_blocks.CenteredTitle()),
-        ]
-
 """
 Orderable class example 
 """

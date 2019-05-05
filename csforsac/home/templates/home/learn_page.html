@@ -1,124 +1,17 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
-
-{% load wagtailimages_tags %}
-
-{% block body_class %}template-homepage{% endblock %}
+{% load wagtailimages_tags wagtailcore_tags %}
 
 {% block content %}
 
-{% image page.photo original %}
+    {% for block in page.header_content %}
+        {% include_block block %}
+    {% endfor %} 
 
-    <main role="main">
-
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="first-slide" src="https://picsum.photos/1600/400" alt="Learn Page">
-                  <div class="container">
-                    <div class="carousel-caption text-left">
-		      <h1> {{ page.header}}</h1>
-		      <p>{{ page.subheader }}</p>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </div>
-      
-      
-           <!-- START THE FEATURETTES -->
-      
-           <hr class="featurette-divider">
-      
-           <div class="row featurette">
-            <div class="row featurette wow bounceInRight">
-              <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-7">
-                  <h2 class="featurette-heading">K-2</h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. 
-                      Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. 
-                      Fusce dapibus, tellus ac cursus commodo.</p>
-                </div>
-                <div class="col-md-3">
-                  <img class="img-fluid" src="https://picsum.photos/400" alt="Generic placeholder image">
-                </div>
-                <div class="col-md-1"></div>
-              </div>
-             </div>
-           </div>
-   
-           <hr class="featurette-divider">
-   
-           <div class="row featurette">
-              <div class="row featurette wow bounceInRight">
-                <div class="col-md-1"></div>
-                <div class="col-md-7">
-                  <h2 class="featurette-heading">3-5</h2>
-                  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                </div>
-                <div class="col-md-3">
-                  <img class="featurette-image img-fluid mx-auto" data-src="https://picsum.photos/401" alt="Grades 3-5">
-                </div>
-                <div class="col-md-1"></div>
-              </div>
-           </div>
-   
-           <hr class="featurette-divider">
-   
-           <div class="row featurette">
-            <div class="row featurette wow bounceInRight">
-              <div class="col-md-1"></div>
-              <div class="col-md-7">
-                <h2 class="featurette-heading">6th</h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-              </div>
-              <div class="col-md-3">
-                <img class="featurette-image img-fluid mx-auto" data-src="https://picsum.photos/402" alt="Generic placeholder image">
-              </div>
-              <div class="col-md-1"></div>
-            </div>
-           </div>
-
-           <hr class="featurette-divider">
-   
-           <div class="row featurette">
-            <div class="row featurette wow bounceInRight">
-            <div class="col-md-1"></div>
-             <div class="col-md-7">
-               <h2 class="featurette-heading">7th</h2>
-               <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-             </div>
-             <div class="col-md-3">
-               <img class="featurette-image img-fluid mx-auto" data-src="https://picsum.photos/500" alt="Generic placeholder image">
-             </div>
-             <div class="col-md-1"></div>
-            </div>
-           </div>
-
-           <hr class="featurette-divider">
-   
-           <div class="row featurette">
-            <div class="row featurette wow bounceInRight">
-            <div class="col-md-1"></div>
-             <div class="col-md-7">
-               <h2 class="featurette-heading">8th</h2>
-               <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-             </div>
-             <div class="col-md-3">
-               <img class="featurette-image img-fluid mx-auto" data-src="https://picsum.photos/501" alt="Generic placeholder image">
-             </div>
-             <div class="col-md-1"></div>
-            </div>
-           </div>
-   
-           <hr class="featurette-divider">
-
-           
-   
-           <!-- /END THE FEATURETTES -->
+    <div class="container"> 
+        {% for block in self.body %}
+            {% include_block block %}
+        {% endfor %}
+    </div>
 
 {% endblock %}

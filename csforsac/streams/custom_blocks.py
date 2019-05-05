@@ -193,6 +193,28 @@ class BannerWideImageBlock(blocks.StructBlock):
         template = "streams/banner_wide_image_block.html" 
         icon ="image"
 
+
+class StreamLists():
+    """ This class holds generic lists of stream fields """
+
+    header_list = [
+        ("free_carousel", FreeCarouselBlock()),
+        ("wide_banner", BannerWideImageBlock()),
+    ]
+    
+    body_list = [
+            ("title_and_Subtitle", TitleAndSubtitle() ),
+            ("full_richtext", RichtextBlock()),
+            ("limited_richtext", LimitedRichtextBlock()),
+            ("embeding", EmbededBlock()),
+            ("cards", CardBlock()),
+            ("right_featurettes", LrgRightMediaBlock()),
+            ("left_featurettes", LrgLeftMediaBlock()),
+            ("right_media_block", SmRightMediaBlock()),
+            ("left_media_block", SmLeftMediaBlock()),
+            ("centered_title", CenteredTitle()),
+        ]
+
 # class BannerSquareImageBlock(blocks.StructBlock):
 #     # @TODO make template
 #     ("image", ImageChooserBlock(required=True)),
@@ -269,3 +291,4 @@ class BannerWideImageBlock(blocks.StructBlock):
 #     class Meta:  # noqa
 #         template = "blocks/nav_title_link.html" # 
 #         icon ="redirect"
+
