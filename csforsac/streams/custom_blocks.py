@@ -14,6 +14,17 @@ class TitleAndSubtitle(blocks.StructBlock):
         icon = "edit"
         label = "Title and Subtitle"
 
+class CenteredTitle(blocks.StructBlock):
+    """ Typical Header """
+
+    title = blocks.CharBlock(required=False, help_text="Add your title")
+    sub_title = blocks.CharBlock(required=False, help_text="Add your sub-title")
+    class Meta:  # noqa
+        template = "streams/centered_title_block.html"
+        icon = "edit"
+        label = "Centered Title"
+
+
 class RichtextBlock(blocks.RichTextBlock):
     """ Richtext """
 
@@ -46,7 +57,7 @@ class EmbededBlock(EmbedBlock):
         label = "embeding"
 
 class CardBlock(blocks.StructBlock):
-    """ cards side by side with picture and text"""
+    """ cards side by side with picture, text, and optional buttons """
 
     title = blocks.CharBlock(required=False, help_text="Add your title")
     
@@ -135,39 +146,37 @@ class LrgRightMediaBlock(blocks.StructBlock):
         template = "streams/lrg_right_media_block.html"
         icon ="image"
 
-
-class LeftSmMediaBlock(blocks.StructBlock):
-    """ @TODO description """
-
-    mediaList = blocks.ListBlock(
-        blocks.StructBlock(
-            [
-                ("image", ImageChooserBlock(required=True)),
-                ("title", blocks.CharBlock(required=True)),
-                ("paragraph", blocks.TextBlock(required=True)),
-            ]
-        )
-    )
-    class Meta:  # noqa
-        template = "streams/left_sm_media_block.html" 
-        icon ="image"
-
-class AltSmMediaBlock(blocks.StructBlock):
+class SmRightMediaBlock(blocks.StructBlock):
     """ @TODO description """
     mediaList = blocks.ListBlock(
         blocks.StructBlock(
             [
                 ("r_image", ImageChooserBlock(required=True)),
-                ("r_title", blocks.CharBlock(required=False, max_length = 20)),
-                ("r_paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 250)),
-                ("l_image", ImageChooserBlock(required=True)),
                 ("l_title", blocks.CharBlock(required=False)),
-                ("l_paragraph", blocks.TextBlock(required=False, min_length = 150, max_length = 350, help_text="Looks bad without at least 200 characters")),
+                ("l_paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 350)),
+            ]
+        )
+    )
+    
+    class Meta:  # noqa
+        template = "streams/sm_right_media_block.html"
+        icon ="image"
+
+
+class SmLeftMediaBlock(blocks.StructBlock):
+    """ @TODO description """
+    mediaList = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("l_image", ImageChooserBlock(required=True)),
+                ("r_title", blocks.CharBlock(required=False)),
+                ("r_paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 350)),
+                
             ]
         )
     )
     class Meta:  # noqa
-        template = "streams/alt_sm_media_block.html"
+        template = "streams/sm_left_media_block.html"
         icon ="image"
 
 

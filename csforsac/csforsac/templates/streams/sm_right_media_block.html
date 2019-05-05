@@ -1,0 +1,16 @@
+{% load wagtailimages_tags %}
+
+    <div class="container">
+            {% for element in self.mediaList %}
+                {% image element.r_image fill-85x85-c75 as img %}
+                <div class="media">
+                    <img src="{{ img.url }}" class="mr-3" alt="{{ img.alt }}">
+                    
+                    <div class="media-body">
+                        <h5 class="mt-1 mb-1">{{ element.l_title }}</h5>
+                        {{element.l_paragraph}}
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+

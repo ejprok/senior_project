@@ -1,7 +1,9 @@
 {% load wagtailimages_tags %}
 
 <div class="container mb-sm-5 mt-sm-5">
-    <h1 class="text-center mb-sm-5">{{ self.title }}</h1>
+    {% if self.title %}
+        <h1 class="text-center mb-sm-5">{{ self.title }}</h1>
+    {% endif %}
     <div class="card-deck">
       
       
