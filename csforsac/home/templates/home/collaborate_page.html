@@ -13,15 +13,18 @@
             {% include_block block %}
         {% endfor %}
     </div>
+
 {% comment %} Anchor here {% endcomment %}
-    <div class="container"> 
+    <hr>
+    <div id="middle_school" class="container"> 
         {% for block in self.middle_school %}
             {% include_block block %}
         {% endfor %}
     </div>
+    
 {% comment %} Anchor here {% endcomment %}
-
-    <div class="container"> 
+    <hr>
+    <div id="high_school" class="container"> 
         {% for block in self.high_school %}
             {% include_block block %}
         {% endfor %}

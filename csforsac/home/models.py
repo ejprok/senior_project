@@ -112,6 +112,7 @@ class CollaboratePage(Page):
     header_content = StreamField(
             [
                 ("free_carousel", custom_blocks.FreeCarouselBlock()),
+                ("wide_banner", custom_blocks.BannerWideImageBlock()),
             ],
             null=True,
             blank=True,
@@ -232,13 +233,14 @@ class SupportPage(Page):
 
     ]
 
-class Implementation(Page):
+class ImplementationPage(Page):
     max_count = 1
     template = 'home/implementation_page.html'
 
     header_content = StreamField(
         [
             ("free_carousel", custom_blocks.FreeCarouselBlock()),
+            ("wide_banner", custom_blocks.BannerWideImageBlock()),
         ],
         null=True,
         blank=True,

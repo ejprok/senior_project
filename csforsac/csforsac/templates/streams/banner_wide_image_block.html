@@ -2,11 +2,12 @@
 
 
         
-{% image self.banner.image fill-1000x500 as img %}            
+{% image self.banner.image fill-750x750 as img %}            
 
-    <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: 100% 100%; color: #fff !important"> 
+    <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: cover; height: 40vh; background-position: center center"> 
+                   
     
-         {% if self.banner.title %}
+        {% if self.banner.title %}
             <h1 class='display-4'> {{ self.banner.title }} </h1>
         {% endif %}
 
