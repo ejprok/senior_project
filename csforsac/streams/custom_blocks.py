@@ -163,7 +163,6 @@ class AltSmMediaBlock(blocks.StructBlock):
                 ("l_image", ImageChooserBlock(required=True)),
                 ("l_title", blocks.CharBlock(required=False)),
                 ("l_paragraph", blocks.TextBlock(required=False, min_length = 150, max_length = 350, help_text="Looks bad without at least 200 characters")),
-
             ]
         )
     )
@@ -176,7 +175,7 @@ class BannerWideImageBlock(blocks.StructBlock):
     """ @TODO description """
     banner = blocks.StructBlock(
         [
-            ("image", ImageChooserBlock(required=True)),
+            ("image", ImageChooserBlock(required=True, help_text="requires a very wide image")),
             ("title", blocks.CharBlock(required=False, max_length=25)),
             ("sub_title", blocks.TextBlock(required=False, max_length=50)),
         ]
