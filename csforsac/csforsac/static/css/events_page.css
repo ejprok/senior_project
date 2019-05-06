@@ -1,120 +1,59 @@
-#menuwrapper {
-  position: relative;
+.fa {
+	font-size: 20px;
 }
 
-#menuwrapper ul {
-  width:250px;
-  height:300px;
-  overflow-x: hidden;
-  overflow-y: auto;
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: white !important;
+    border: none;
+    color: black;
 }
 
-.scrollbar{
-background-color:lightgray;
-margin-top:40px;
-margin-left:40px;
-float:left;
-width:250px;
-height:300px;
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+    background-color: gray;
+    border: none;
+    color: white;
 }
 
-#menuwrapper ul li {
-  position: static !important;
+.btn-unselected, .btn-unselected:hover, .btn-unselected:active, .btn-unselected:visited {
+    background-color: #BBB;
+    border: none;
+    color: white;
 }
 
-.content{
-min-height:450px;
+.btn-selected, .btn-selected:hover, .btn-selected:active, .btn-selected:visited {
+    background-color: #666;
+    border: none;
+    color: white;
 }
 
-#ex4::-webkit-scrollbar{
-width:8px;
-background-color:#cccccc;
-}
-#ex4::-webkit-scrollbar-thumb{
-background-color:#333333;
-border-radius:10px;
-}
-#ex4::-webkit-scrollbar-thumb:hover{
-background-color:#999999;
-border:1px solid #333333;
 
-}
-#ex4::-webkit-scrollbar-thumb:active{
-background-color:#666666;
-border:1px solid #333333;
-}
-#ex4::-webkit-scrollbar-track{
-border:1px gray solid;
-border-radius:10px;
--webkit-box-shadow:0 0 2px gray inset;
-}
-#menuwrapper ul, #menuwrapper ul li{
-    margin:0;
-    padding:0;
-    list-style:none;
-}
-#menuwrapper ul li{
-   background-color: #39255e ;
-    border-bottom:solid 1px white;
-    width:150px;
-	cursor:pointer;
-}
-#menuwrapper ul li:hover,
-#menuwrapper ul li.iehover{
-    background-color:#6679e9;
-    position:relative;
-}
-#menuwrapper ul li a{
-    padding:5px 15px;
-    color:#ffffff;
-    display:inline-block;
-    text-decoration:none;
-}
-#menuwrapper ul li ul{
-    position:absolute;
-    display:none;
-}
-#menuwrapper ul li:hover ul,
-#menuwrapper ul li.iehover ul{
-    left:150px;
-    top:0px;
-    display:block;
-}
-#menuwrapper ul li:hover ul li:hover,
-#menuwrapper ul li.iehover ul li.iehover{
-    background-color:#6679e9;
+button:focus {outline:0 !important;}
+
+.prev, .next, .today {
+	margin: 0px 5px 0px 5px !important;
 }
 
-/* We style the color of level 2 links */
-#menuwrapper ul li ul li a{
-    display:inline-block;
-    width:120px;
+.event-calendar {
+	margin-bottom: 50px;
 }
 
-#menuwrapper ul li:hover ul li ul,
-#menuwrapper ul li.iehover ul li ul{
-    position:absolute;
-    display:none;
-}
-#menuwrapper ul li:hover ul li:hover ul,
-#menuwrapper ul li.iehover ul li.iehover ul{
-    display:block;
-    left:150px;
-    top:0;
-}
-#menuwrapper ul li:hover ul li:hover ul li,
-#menuwrapper ul li.iehover ul li.iehover ul li{
-    background:#39255e;
-}
-#menuwrapper ul li:hover ul li:hover ul li:hover,
-#menuwrapper ul li.iehover ul li.iehover ul li.iehover{
-    background:#6679e9;
-}
-#menuwrapper ul li:hover ul li:hover ul li a,
-#menuwrapper ul li.iehover ul li.iehover ul li a{
-    color:#ffffff;
+.list-group{
+    max-height: 600px;
+    margin-bottom: 15px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
-.clear{
-    clear:both;
+.panel-title {
+	padding-bottom: 10px;
+}
+
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+height: 100%;
+}
+
+.event-container {
+	min-heigh: 700px;
 }

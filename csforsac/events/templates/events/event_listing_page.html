@@ -1,0 +1,108 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/equinox.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/events_page.css' %}"/>
+
+{% endblock %}
+
+{% block content %}
+
+
+    {% image self.event_listing_banner fill-1360x250 as img%}
+    <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: 100% 100%; color: #fff !important"> 
+
+        <h1 class='display-4'> {{page.title}} </h1>
+
+    </div>
+
+<div class="container">
+
+	
+	<div style="height: 100%; padding-bottom: 100px" class="row event-container">
+		<div class="col-lg-8 container">
+			<div style="padding-bottom: 15px" class="row">
+				<div class="col-4"></div>
+				<div class="col-4 btn-group" role="group" >
+					<button id="map-option" type="button" class="btn  btn-unselected ">Map</button>
+					<button id="calendar-option" type="button" class="btn btn-selected">Calendar</button>
+				</div>
+				<div class="col-4"></div>
+			</div>
+			<div style="height:100%; width:100%;" class="row">
+				<div style="height:100%; width:100%;" class="col-12">
+					<div id="event-calendar" class="event-calendar"></div>
+					<div style="height:700px; width:100%;" id="event-map" class="event-map">   <div id="map"></div>  </div>
+				</div>	
+			</div>
+					
+		</div>
+		<div class="col-lg-4 ">
+			<div class="panel panel-primary" id="result_panel">
+				<div class="panel-heading"><h3 class="panel-title">All Events</h3></div>
+				<div class="panel-body">
+					<ul class="list-group">
+						{% for event in events %}
+							<li class="list-group-item"><a href="{{event.slug}}">{{event.title}}</a><br> {{event.start_date}}
+							</li>	        
+						{% endfor %}
+												
+					</ul>
+				</div>
+			</div>
+		</div>		
+
+	</div>
+	
+</div>
+
+
+
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="{% static 'js/equinox.js' %}"></script>
+<script src="{% static 'js/events_page.js' %}"></script>
+ <script>
+      var map;
+      function initMap() {  
+	    
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat:38.5816,  lng: -121.4944,},
+          zoom: 10
+        });
+        {% for event in events %}
+	        var myLatlng{{forloop.counter}} = new google.maps.LatLng({{event.geolocation}});
+	        var marker{{forloop.counter}} = new google.maps.Marker({
+			    position: myLatlng{{forloop.counter}},
+			    title:"{{event.title}}"
+			});
+			// To add the marker to the map, call setMap();
+			var infowindow{{forloop.counter}} = new google.maps.InfoWindow({
+	          content: '<a href="{{event.slug}}" >{{event.title}}</a><br>{{event.start_date}}'
+	        });
+			marker{{forloop.counter}}.setMap(map);
+	        marker{{forloop.counter}}.addListener('click', function() {
+	          infowindow{{forloop.counter}}.open(map, marker{{forloop.counter}});
+	        });
+		{% endfor %}
+
+
+
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBYP_MciP-eBUwjtls5Y6x_f_HmSNF9WQ&callback=initMap"
+    async defer></script>
+
+
+{% endblock %}

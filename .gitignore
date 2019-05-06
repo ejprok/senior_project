@@ -1,5 +1,8 @@
 /venv
 *.sock
+
+/csforsac/media/*
+
 /csforsac/home/migrations/*
 /csforsac/events/migrations/*
 /csforsac/blog/migrations/*
