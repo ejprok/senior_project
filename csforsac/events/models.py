@@ -13,38 +13,56 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.blocks import RichTextBlock
 
 
-from django_google_maps.fields import AddressField, GeoLocationField
+
+from wagtailgmaps.edit_handlers import MapFieldPanel
 
 
 from django.urls import reverse
 
 class EventListingPage(Page):
     body = models.CharField(max_length=255, blank=True)
+    event_listing_banner = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        related_name="+",
+        on_delete= models.SET_NULL, 
+    )
     content_panels = Page.content_panels + [
         FieldPanel('body'),
+        ImageChooserPanel("event_listing_banner"),
     ]
 
-    def get_context(self, request):
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
         all_entries = EventFocusPage.objects.all()
 
-        context = { 'events' : all_entries}
+        context['events'] = all_entries
         return context
        
 class EventFocusPage(Page):
-	description = models.CharField(max_length=255, blank=True)
+	description = RichTextField(blank=True)
+	address = models.CharField(max_length=255, blank=True)
+	geolocation = models.CharField(max_length=255, blank=True)
 	
 	start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True)
 	end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True)
 	start_time = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
 	end_time = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
 	
+	
 	content_panels = Page.content_panels + [
-	    FieldPanel('description'),
-	    FieldPanel('start_date'),
-	    FieldPanel('end_date'),
-	    FieldPanel('start_time'),
-	    FieldPanel('end_time'),
+
+		FieldPanel('description'),
+		MapFieldPanel('address'),
+		MapFieldPanel('geolocation', latlng=True),
+		FieldPanel('start_date'),
+		FieldPanel('end_date'),
+		FieldPanel('start_time'),
+		FieldPanel('end_time'),
+
 	]
+	
 	
 
 
@@ -56,9 +74,7 @@ class Event(models.Model):
     date = models.DateField(auto_now=False, auto_now_add=False, blank=True)
     start_time = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
     end_time = models.TimeField(auto_now=False, auto_now_add=False, blank=True)
-    
-    address = AddressField(max_length=100)
-    geolocation = GeoLocationField(blank=True)
+
 
 
     def __str__(self):

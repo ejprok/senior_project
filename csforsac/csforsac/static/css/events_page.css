@@ -9,10 +9,29 @@
 }
 
 .btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
-    background-color: orange !important;
-    border-color: gray;
+    background-color: gray;
+    border: none;
     color: white;
 }
+
+.btn-unselected, .btn-unselected:hover, .btn-unselected:active, .btn-unselected:visited {
+    background-color: #BBB;
+    border: none;
+    color: white;
+}
+
+.btn-selected, .btn-selected:hover, .btn-selected:active, .btn-selected:visited {
+    background-color: #666;
+    border: none;
+    color: white;
+}
+
+.btn-right,  .btn-right:hover, .btn-right:active, .btn-right:visited {
+	border-left: 1px solid;
+	
+}
+
+button:focus {outline:0 !important;}
 
 .prev, .next, .today {
 	margin: 0px 5px 0px 5px !important;
@@ -24,7 +43,17 @@
 
 .list-group{
     max-height: 600px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
 }
+
+.panel-title {
+	padding-bottom: 10px;
+}
+
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }

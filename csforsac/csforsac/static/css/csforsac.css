@@ -5,6 +5,10 @@
 
 }
 
+.orange-color {
+	background:rgba(255,140,0,1);
+}
+
 body {
 	padding-bottom: 0px !important;
 }

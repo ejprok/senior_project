@@ -37,6 +37,8 @@ INSTALLED_APPS = [
 
     'wagtail.contrib.routable_page',
     
+    'wagtailgmaps',
+    
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.contrib.styleguide',
@@ -190,3 +192,8 @@ GEOPOSITION_GOOGLE_MAPS_API_KEY = "REPLACE"
 MAPS_API_KEY = "REPLACE"
 
 GOOGLE_MAPS_API_KEY =  "REPLACE"
+
+WAGTAIL_ADDRESS_MAP_CENTER = 'Sacramento, California'  # It must be a properly formatted address
+WAGTAIL_ADDRESS_MAP_KEY = 'AIzaSyCBYP_MciP-eBUwjtls5Y6x_f_HmSNF9WQ'
+WAGTAIL_ADDRESS_MAP_ZOOM = 15
+

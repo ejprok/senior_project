@@ -367,7 +367,8 @@
 		var eventHtml = $('<a class="event ' + event.class + '" href="' + event.url + '" ' + (event.color != '' ? 'style="border-color: ' + event.color + ';"' : '') + '></a>');
 		eventHtml.data('event-id', event.id);
 		eventHtml.append('<span class="start-time">' + event.start.format(event.start.minutes() === 0 ? 'ha' : 'h:mma') + '</span>');
-		eventHtml.append('<span class="title">' + event.title + '</span>');
+		eventHtml.append('<span class="title d-none d-md-block">' + event.title + '</span>');
+		eventHtml.append('<span class=" d-block d-md-none"><i class="fa fa-calendar"></i></span>');
 		return eventHtml;
 
 	};

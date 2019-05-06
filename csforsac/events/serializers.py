@@ -10,7 +10,7 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
 class EventSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = EventFocusPage
-        fields = ( 'title', 'description', 'start_date', 'end_date', 'start_time', 'end_time', 'slug')
+        fields = ( 'title', 'description', 'start_date', 'end_date', 'start_time', 'end_time', 'slug', 'address')
 
 
 
