@@ -75,23 +75,21 @@ class CardBlock(blocks.StructBlock):
     class Meta:  # noqa
         template = "streams/cards_block.html" # 
 
-# class CardRow(blocks.StructBlock):
-#     """ 3 cards side by side without buttons"""
+class CardRow(blocks.StructBlock):
+    """ 3 cards side by side without buttons"""
     
-#     card = blocks.ListBlock(
-#         blocks.StructBlock(
-#             [
-#                 ("title_1", blocks.CharBlock(required=True, max_length=40)),
-#                 ("text_body_1", blocks.TextBlock(required=True, max_length=375)),
-#                 ("title_2", blocks.CharBlock(required=True, max_length=40)),
-#                 ("text_body_2", blocks.TextBlock(required=True, max_length=375)),
-#                 ("title_3", blocks.CharBlock(required=True, max_length=40)),
-#                 ("text_body_3", blocks.TextBlock(required=True, max_length=375)),
-#             ]
-#         )
-#     )
-#     class Meta:  # noqa
-#         template = "streams/card_row.html" #
+    card_row = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=375)),
+                ("local_page_button", blocks.PageChooserBlock(required=False, help_text="(optional) - this is a button")),
+                ("url_button", blocks.URLBlock(required=False, help_text="(optional) - button above used first")),
+            ]
+        )
+    )
+    class Meta:  # noqa
+        template = "streams/card_row.html" #
 
 class FreeCarouselBlock(blocks.StructBlock):
     """ Large carousel with optional headings """

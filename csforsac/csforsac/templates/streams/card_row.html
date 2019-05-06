@@ -3,26 +3,25 @@
 <div class="container mb-sm-5 mt-sm-5">
     <div class="row">
 
-            {% for card in self.cards %}
-            <div class="col-sm">
-                <div class="card-body">
-                    <h3 class="card-title">{{ card.title_1 }}</h3>
-                    <p class="card-text">{{ card.text_body_1 }}</p>
+        {% for card in self.card_row %}
+        <div class="col-sm">
+            <div class="card-body">
+                <h3 class="card-title">{{ card.title }}</h3>
+                <p class="card-text">{{ card.text }}</p>
+                <div id="button">
+                    {% if card.local_page_button %}
+                        <p><a href="{{ card.local_page_button.url }}" class="btn btn-secondary" role="button">
+                            Learn More &raquo;
+                        </a></p>
+                    {% elif card.url_button %}
+                        <p><a href="{{ card.url_button }}" class="btn btn-secondary" role="button">
+                            Learn More &raquo;
+                        </a></p>
+                    {% endif %}
                 </div>
             </div>
-            <div class="col-sm">
-                <div class="card-body">
-                    <h3 class="card-title">{{ card.title_2 }}</h3>
-                    <p class="card-text">{{ card.text_body_2 }}</p>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card-body">
-                    <h3 class="card-title">{{ card.title_2 }}</h3>
-                    <p class="card-text">{{ card.text_body_2 }}</p>
-                </div>
-            </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
         
     </div>
 </div>

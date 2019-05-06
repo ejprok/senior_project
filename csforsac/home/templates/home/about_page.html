@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load wagtailcore_tags %}
-
-{% block body_class %}template-homepage{% endblock %}
+{% load wagtailimages_tags wagtailcore_tags %}
 
 {% block content %}
 
@@ -12,80 +10,11 @@
 
     <div class="container">
         <div id="about-title">
-            <h1>{{ page.main_title }}</h1>
+            <h1 style="text-align: center;">{{ page.main_title }}</h1>
         </div>
         <div class="col-lg" id="quote1">
             <h3>{{ page.quote1 }}</h3>
-        </div>
-        <div class="row" id="quote-row">
-            <div class="col-8" id="quote2">
-                <h3>{{ page.quote2 }}</h3>
-            </div>
-            <div class="col-4" id="quote2-img">
-                <img class="img-fluid" src="https://picsum.photos/503" alt="Generic placeholder image">
-            </div>
-        </div>
-
-        <!-- divider -->
-        <div>
-            <div style="height:20px; overflow:hidden; width: 100%;"></div>
-                <hr class="styled-hr" style="width:100%;">
-            <div style="height:20px; overflow:hidden; width: 100%;"></div>
-        </div>
-        
-        <div class="row">   
-            <div class="col-sm" id="about-col-content">
-              <div id="about-col-header">
-                  <h3>{{ page.col_1_header }}</h3>
-              </div>
-              <div id="about-col-body">
-                <p>{{ page.col_1_body }}</p>
-              </div>
-              <div id="button">
-                <p><a class="btn btn-secondary" href="{}" role="button">View Details &raquo;</a></p>
-              </div>
-          </div>
-          <div class="col-sm"id="about-col-content">
-              <div id="about-col-header">
-                  <h3>{{ page.col_2_header }}</h3>
-              </div>
-              <div id="about-col-body">
-                  <p>{{ page.col_2_body }}</p>
-              </div>
-              <div id="button">
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-          </div>
-          <div class="col-sm"id="about-col-content">
-              <div id="about-col-header">
-                  <h3>{{ page.col_3_header }}</h3>
-              </div>
-              <div id="about-col-body">
-                  <p>{{ page.col_3_body }}</p>
-              </div>
-              <div id="button">
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                  </div>
-          </div>
-      </div>
-
-        <!-- divider -->
-        <div>
-            <div style="height:20px; overflow:hidden; width: 100%;"></div>
-                <hr class="styled-hr" style="width:100%;">
-            <div style="height:20px; overflow:hidden; width: 100%;"></div>
-        </div>
-
-        <!-- What is Computer Science -->
-        <div class="container" id="what-is-cs">
-            <div class="row" id="quote-row">
-                <div class="col-8" id="quote2">
-                    <h3>{{ page.quote3 }}</h3>
-                </div>
-                <div class="col-4" id="quote1-img">
-                    <img class="img-fluid" src="https://picsum.photos/503" alt="Generic placeholder image">
-                </div>
-            </div>
+            <h5>{{ page.author1 }}</h5>
         </div>
 
         <!-- divider -->
@@ -95,23 +24,11 @@
             <div style="height:20px; overflow:hidden; width: 100%;"></div>
         </div>
 
-
-            <div class="container" id="goals">
-                <h5>{{ page.goal_intro }}</h5>
-                <ol>
-                    <li>{{ page.goal1 }}</li>
-                    <li>{{ page.goal2 }}</li>
-                    <li>{{ page.goal2 }}</li>
-                </ol> 
-            </div>
-
-        <!-- divider -->
         <div>
-            <div style="height:20px; overflow:hidden; width: 100%;"></div>
-                <hr class="styled-hr" style="width:100%;">
-            <div style="height:20px; overflow:hidden; width: 100%;"></div>
+            {% for block in self.body %}
+                {% include_block block %}
+            {% endfor %}
         </div>
-
 
 
     </div> <!--  end container -->

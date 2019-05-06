@@ -21,43 +21,9 @@ hr .styled-hr{
   border-width: 1px;
   width: 70%; 
   overflow: hidden;
-  /* TODO: fix width of divider */
-}
-
-#about-title h1 {
-    margin: 15px auto;
-    text-align: center;
-}
-
-.about-col-content {
-    max-width: 400px;
-    margin: 5px auto;
-}
-
-.about-col-header h1 {
-    font-size: 22px;
-}
-
-.about-col-body p {
-    margin: 15px auto 0;
 }
 
 #quote1 {
     text-align: center;
     padding-bottom: 20px;
-}
-#quote-row #quote2 h3{
-    padding-top: 80px;
-    padding-bottom: 70px;
-    color:rgba(255,140,0,0.7);
-}
-
-#quote2 h3{
-    margin: 5px auto;
-}
-
-#quote2-img{
-    margin: 5px auto;
-    padding-top: 30px;
-    padding-bottom: 30px;
 }
