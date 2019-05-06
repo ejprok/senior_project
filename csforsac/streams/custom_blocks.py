@@ -214,6 +214,7 @@ class StreamLists():
             ("Sm_Right_Media", SmRightMediaBlock()),
             ("Sm_Left_Media", SmLeftMediaBlock()),
             ("cards", CardBlock()),
+            ("card_row", CardRow()),
             ("embeding", EmbededBlock()),
         ]
 
