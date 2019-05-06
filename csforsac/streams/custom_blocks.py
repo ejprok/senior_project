@@ -113,17 +113,13 @@ class FreeCarouselBlock(blocks.StructBlock):
 class LrgLeftMediaBlock(blocks.StructBlock):
     """ Large media blocks (FEATURETTES) with optional heading, Image on left """
 
-    mediaList = blocks.ListBlock(
-        blocks.StructBlock(
-            [
-                ("l_image", ImageChooserBlock(required=True)),
-                ("r_title", blocks.CharBlock(required=False)),
-                ("r_sub_title", blocks.CharBlock(required=False)),
-                ("r_paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 450, help_text="might look with less than 200 characters")),
-
-            ]
-        )
-    )
+    left_featurette = blocks.StructBlock(
+    [
+        ("img", ImageChooserBlock(required=True)),
+        ("title", blocks.CharBlock(required=False)),
+        ("sub_title", blocks.CharBlock(required=False)),
+        ("paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 350)),
+    ])
     class Meta:  # noqa
         template = "streams/lrg_left_media_block.html"
         icon ="image"
@@ -131,17 +127,13 @@ class LrgLeftMediaBlock(blocks.StructBlock):
 class LrgRightMediaBlock(blocks.StructBlock):
     """ Large media block (FEATURETTE) with optional heading, Image on right """
 
-    mediaList = blocks.ListBlock(
-        blocks.StructBlock(
-            [
-                ("r_image", ImageChooserBlock(required=True, help_text="must be at least 445x445")),
-                ("l_title", blocks.CharBlock(required=False)),
-                ("l_sub_title", blocks.CharBlock(required=False)),
-                ("l_paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 450, help_text="might look with less than 200 characters")),
-
-            ]
-        )
-    )
+    right_featurette = blocks.StructBlock(
+    [
+        ("img", ImageChooserBlock(required=True)),
+        ("title", blocks.CharBlock(required=False)),
+        ("sub_title", blocks.CharBlock(required=False)),
+        ("paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 350)),
+    ])
     class Meta:  # noqa
         template = "streams/lrg_right_media_block.html"
         icon ="image"
@@ -187,8 +179,23 @@ class BannerWideImageBlock(blocks.StructBlock):
     class Meta:  # noqa
         template = "streams/banner_wide_image_block.html" 
         icon ="image"
+        label = "Full Width Banner"
 
-# class ThinDivider():
+
+class BannerSquareImageBlock(blocks.StructBlock):
+    # @TODO make template
+    square_banner = blocks.StructBlock(
+        [
+            ("image", ImageChooserBlock(required=True)),
+            ("title", blocks.CharBlock(required=False, max_length=25)),
+            ("sub_title", blocks.TextBlock(required=False, max_length=150)),
+        ]
+    )
+    class Meta:  # noqa
+        template = "streams/banner_square_image_block.html" 
+        icon ="image"
+        label = "Square Img Banner"
+
 
 class StreamLists():
     """ This class holds generic lists of stream fields """
@@ -196,6 +203,7 @@ class StreamLists():
     header_list = [
         ("free_carousel", FreeCarouselBlock()),
         ("wide_banner", BannerWideImageBlock()),
+        ("square_banner", BannerSquareImageBlock()),
     ]
     
     body_list = [
@@ -211,15 +219,6 @@ class StreamLists():
             ("embeding", EmbededBlock()),
         ]
 
-# class BannerSquareImageBlock(blocks.StructBlock):
-#     # @TODO make template
-#     ("image", ImageChooserBlock(required=True)),
-#     ("title", blocks.CharBlock(required=False, max_length=25)),
-#     ("sub_title", blocks.TextBlock(required=False, max_length=50)),
-
-#     class Meta:  # noqa
-#         template = "streams/banner_square_image_block.html" 
-#         icon ="image"
 
 
 

@@ -126,7 +126,6 @@ class LearnPage(Page):
     ]
  
 
-
 class CollaboratePage(Page):
     template = 'home/collaborate_page.html'
     max_count = 1

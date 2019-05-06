@@ -1,0 +1,46 @@
+{% load wagtailimages_tags %}
+{% image self.square_banner.image original as img %}            
+
+    <div class="jumbotron" style="background-image: url('{{ img.url }}');  
+        background-repeat: no-repeat;
+        background-size: 50vh 100%; 
+        height: 50vh; 
+        background-position: center bottom;
+        text-shadow: #444 0 1px 1px;
+        background-color: #0d0d0d;
+        position: relative;"> 
+                   
+        <div class="container" style="position: absolute; bottom: 0; height: 150px"">
+
+            {% if self.square_banner.title %}
+                <h1 class='display-4' style="color: white;"> {{ self.square_banner.title }} </h1>
+            {% endif %}
+
+            {% if self.square_banner.sub_title %}
+                <p style="color: white;" >{{ self.square_banner.sub_title }}</p>
+            {% endif  %}
+        </div>
+    </div>
+
+    
+
+{% comment %}    
+<div class="container-fluid mb-4" style="background-image: url('{{ img.url }}'); 
+    background-size: cover; 
+    height: 50vh; 
+    min-height: 250px;
+    background-position: center center;
+    text-shadow: #444 0 1px 1px;
+    position: relative;"> 
+                   
+        
+        <div class="container" style="position: absolute; bottom: 0; height: 150px">
+            {% if self.banner.title %}
+                <h1 class='display-4' style="color:white"> {{ self.banner.title }} </h1>
+            {% endif %}
+
+            {% if self.banner.sub_title %}
+                <p style="color:white; position">{{ self.banner.sub_title }}</p>
+            {% endif  %}
+        </div>
+    </div> {% endcomment %}

@@ -16,7 +16,7 @@
                  <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %}">
                 
                     {% comment %} <img class="d-block w-100" src="{{ img.url }}" alt="{{ img.alt }}" style="height: 100%;"> {% endcomment %}
-                    <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: cover; height: 53vh; background-position: center center">
+                    <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: cover; height: 53vh; background-position: center center; text-shadow: #444 0 1px 1px;">
                         <div class="carousel-caption text-left">
                             {% if carousel_page.title %}
                                 <h1>{{ carousel_page.title }}</h1>

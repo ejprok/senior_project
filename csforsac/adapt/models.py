@@ -14,28 +14,11 @@ class AdaptPage(RoutablePageMixin, Page):
     tempalate = "adapt/adapt_page.html"
 
 
-    header_content = StreamField(
-        [
-            ("free_carousel", custom_blocks.FreeCarouselBlock()),
-        ],
+    header_content = StreamField(custom_blocks.StreamLists().header_list,
         null=True,
-        blank=True,
-    )
+        blank=True,)
 
-    body = StreamField(
-        [
-            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
-            ("full_richtext", custom_blocks.RichtextBlock()),
-            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
-            ("embeding", custom_blocks.EmbededBlock()),
-            ("cards", custom_blocks.CardBlock()),
-            # ("card_row", custom_blocks.CardRow()),
-            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
-            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
-            ("right_media_block", custom_blocks.SmRightMediaBlock()),
-            ("left_media_block", custom_blocks.SmLeftMediaBlock()),
-            
-        ],
+    body = StreamField(custom_blocks.StreamLists().body_list,
         null=True,
         blank=True,
     )
