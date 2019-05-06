@@ -26,10 +26,6 @@
     color: white;
 }
 
-.btn-right,  .btn-right:hover, .btn-right:active, .btn-right:visited {
-	border-left: 1px solid;
-	
-}
 
 button:focus {outline:0 !important;}
 
@@ -52,8 +48,12 @@ button:focus {outline:0 !important;}
 	padding-bottom: 10px;
 }
 
-  /* Always set the map height explicitly to define the size of the div
-   * element that contains the map. */
-  #map {
-    height: 100%;
-  }
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+height: 100%;
+}
+
+.event-container {
+	min-heigh: 700px;
+}

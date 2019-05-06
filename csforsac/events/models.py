@@ -41,7 +41,8 @@ class EventListingPage(Page):
         return context
        
 class EventFocusPage(Page):
-	description = RichTextField(blank=True)
+	brief_description = RichTextField(blank=True)
+	detailed_description = RichTextField(blank=True)
 	address = models.CharField(max_length=255, blank=True)
 	geolocation = models.CharField(max_length=255, blank=True)
 	
@@ -52,8 +53,8 @@ class EventFocusPage(Page):
 	
 	
 	content_panels = Page.content_panels + [
-
-		FieldPanel('description'),
+		FieldPanel('brief_description'),
+		FieldPanel('detailed_description'),
 		MapFieldPanel('address'),
 		MapFieldPanel('geolocation', latlng=True),
 		FieldPanel('start_date'),
