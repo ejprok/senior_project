@@ -6,19 +6,16 @@
 
 {% block content %}
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-	<div class="carousel-inner">
-		<div class="carousel-item active">
-			<img class="first-slide" src="https://picsum.photos/800/300" alt="First slide">
-			<div class="container">
-				<div class="carousel-caption text-left">
-					<h1> {{ page.header}}</h1>
-					<p>{{ page.subheader }}</p>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{page.header}}</h1>
+
+    <p class="lead">{{page.subheader}}</p>
+
+    
+  </div>
 </div>
+
 <!-- todo: fix giant header image -->
 	{% for block in self.body %}
 		{% include_block block %}
