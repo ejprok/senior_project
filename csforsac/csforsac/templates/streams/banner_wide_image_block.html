@@ -2,16 +2,18 @@
 {% image self.banner.image original as img %}            
 
     <div class="container-fluid mb-4" style="background-image: url('{{ img.url }}'); 
-    background-size: cover; 
-    height: 50vh; 
-    min-height: 250px;
-    background-position: center center;
-    text-shadow: #444 0 1px 1px;
-    position: relative;"> 
+        background-size: cover; 
+        height: 50vh; 
+        min-height: 250px;
+        background-position: center center;
+        text-shadow: #444 0 1px 1px;
+        position: relative;"> 
                    
         
         <div class="container" style="position: absolute; 
-                bottom: 0; height: 150px">
+            bottom: 0; 
+            height: 150px">
+
             {% if self.banner.title %}
                 <h1 class='display-4' style="color:white"> {{ self.banner.title }} </h1>
             {% endif %}

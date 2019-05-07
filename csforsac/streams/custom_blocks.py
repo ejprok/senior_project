@@ -208,18 +208,18 @@ class StreamLists():
     ]
     
     body_list = [
-            ("centered_title", CenteredTitle()),
-            ("left_title", TitleAndSubtitle() ),
-            ("full_richtext", RichtextBlock()),
-            ("limited_richtext", LimitedRichtextBlock()),
-            ("right_featurettes", FeaturetteRightBlock()),
-            ("left_featurettes", FeaturetteLeftBlock()),
-            ("Sm_Right_Media", SmRightMediaBlock()),
-            ("Sm_Left_Media", SmLeftMediaBlock()),
-            ("cards", CardBlock()),
-            ("card_row", CardRow()),
-            ("embeding", EmbededBlock()),
-        ]
+        ("centered_title", CenteredTitle()),
+        ("left_title", TitleAndSubtitle() ),
+        ("full_richtext", RichtextBlock()),
+        ("limited_richtext", LimitedRichtextBlock()),
+        ("right_featurettes", FeaturetteRightBlock()),
+        ("left_featurettes", FeaturetteLeftBlock()),
+        ("Sm_Right_Media", SmRightMediaBlock()),
+        ("Sm_Left_Media", SmLeftMediaBlock()),
+        ("cards", CardBlock()),
+        ("card_row", CardRow()),
+        ("embeding", EmbededBlock()),
+    ]
 
 
 
