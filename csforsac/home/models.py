@@ -15,27 +15,6 @@ from wagtail.core.blocks import RichTextBlock
 from events.models import Event
 
 
-class StreamFieldList():
-    """ This class holds generic lists of stream fields """
-
-    header_stream_fields = [
-        ("free_carousel", custom_blocks.FreeCarouselBlock()),
-        ("wide_banner", custom_blocks.BannerWideImageBlock()),
-    ]
-    
-    body_stream_fields = [
-            ("title_and_Subtitle", custom_blocks.TitleAndSubtitle() ),
-            ("full_richtext", custom_blocks.RichtextBlock()),
-            ("limited_richtext", custom_blocks.LimitedRichtextBlock()),
-            ("embeding", custom_blocks.EmbededBlock()),
-            ("cards", custom_blocks.CardBlock()),
-            ("card_row", custom_blocks.CardRow()),
-            ("right_featurettes", custom_blocks.LrgRightMediaBlock()),
-            ("left_featurettes", custom_blocks.LrgLeftMediaBlock()),
-            ("right_media_block", custom_blocks.SmRightMediaBlock()),
-            ("left_media_block", custom_blocks.SmLeftMediaBlock()),
-            ("centered_title", custom_blocks.CenteredTitle()),
-        ]
 
 class HomePage(Page):
     template = 'home/home_page.html'
@@ -69,7 +48,7 @@ class AboutPage(Page):
     main_title = models.TextField(max_length=255, blank=True)
     quote1 = models.TextField(max_length=400, blank=True)
     author1 = models.TextField(max_length=70, blank=True)
-    body = StreamField(StreamFieldList.body_stream_fields, null=True, blank=False)
+    body = StreamField(custom_blocks.StreamLists().body_list, null=True, blank=False)
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([

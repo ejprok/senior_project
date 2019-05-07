@@ -1,15 +1,13 @@
 {% load wagtailimages_tags %}
-{% image self.featurette_right.image fill-445x445-c75 as img %}
+{% image self.right_featurette.img fill-445x445-c75 as img %}
 
 <div class="container">
-    <hr class="featurette-divider">
-
         <div class="row featurette wow bounceInLeft">
-        <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading"> {{ self.featurette_right.title }} </h2>
-            <span class="featurette-heading text-muted">{{ self.featurette_right.sub_title }}</span>
-            <p class="lead">{{ self.featurette_right.paragraph }}</p>
-        </div>
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading"> {{ self.right_featurette.title }} </h2>
+                <span class="featurette-heading text-muted">{{ self.right_featurette.sub_title }}</span>
+                <p class="lead">{{ self.right_featurette.paragraph }}</p>
+            </div>
         <div class="col-md-5 order-md-1">
             <img class="featurette-image img-fluid mx-auto" src="{{ img.url }}" alt="{{ img.alt }}">
         </div>

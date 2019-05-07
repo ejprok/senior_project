@@ -1,22 +1,20 @@
 {% load wagtailimages_tags %}
-{% image self.left_featurette.image fill-445x445-c75 as img %}
+{% image self.left_featurette.img fill-445x445-c75 as img %}
 
-    <div class="container">
-        <hr class="featurette-divider">
-
-            <div class="row featurette wow bounceInRight">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">{{ self.left_featurette.title }} </h2>
-                    <span class="featurette-heading text-muted">{{ self.left_featurette.sub_title }}</span>
-                    <p class="lead">{{ self.left_featurette.paragraph }}</p>
-                </div>
-                <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" src="{{ img.url }}" alt="{{ img.alt }}">
-                </div>
+<div class="container">
+        <div class="row featurette wow bounceInRight">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">{{ self.left_featurette.title }} </h2>
+                <span class="featurette-heading text-muted">{{ self.left_featurette.sub_title }}</span>
+                <p class="lead">{{ self.left_featurette.paragraph }}</p>
             </div>
-    </div>
-    <hr  style=" border: 0; 
-    height: 1px; 
-    background-image: -webkit-linear-gradient(left, #cccccc, #f2f2f2, #f0f0f0, #cccccc);" >
+            <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto" src="{{ img.url }}" alt="{{ img.alt }}">
+            </div>
+        </div>
+</div>
+<hr  style=" border: 0; 
+height: 1px; 
+background-image: -webkit-linear-gradient(left, #cccccc, #f2f2f2, #f0f0f0, #cccccc);" >
 
 

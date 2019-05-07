@@ -108,7 +108,7 @@ class FreeCarouselBlock(blocks.StructBlock):
         icon ="image"
 
 
-class LrgLeftMediaBlock(blocks.StructBlock):
+class FeaturetteLeftBlock(blocks.StructBlock):
     """ Large media blocks (FEATURETTES) with optional heading, Image on left """
 
     left_featurette = blocks.StructBlock(
@@ -119,10 +119,10 @@ class LrgLeftMediaBlock(blocks.StructBlock):
         ("paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 350)),
     ])
     class Meta:  # noqa
-        template = "streams/lrg_left_media_block.html"
+        template = "streams/featurette_left_block.html"
         icon ="image"
 
-class LrgRightMediaBlock(blocks.StructBlock):
+class FeaturetteRightBlock(blocks.StructBlock):
     """ Large media block (FEATURETTE) with optional heading, Image on right """
 
     right_featurette = blocks.StructBlock(
@@ -133,7 +133,7 @@ class LrgRightMediaBlock(blocks.StructBlock):
         ("paragraph", blocks.TextBlock(required=False, min_length = 50, max_length = 350)),
     ])
     class Meta:  # noqa
-        template = "streams/lrg_right_media_block.html"
+        template = "streams/featurette_right_block.html"
         icon ="image"
 
 class SmRightMediaBlock(blocks.StructBlock):
@@ -209,8 +209,8 @@ class StreamLists():
             ("left_title", TitleAndSubtitle() ),
             ("full_richtext", RichtextBlock()),
             ("limited_richtext", LimitedRichtextBlock()),
-            ("right_featurettes", LrgRightMediaBlock()),
-            ("left_featurettes", LrgLeftMediaBlock()),
+            ("right_featurettes", FeaturetteRightBlock()),
+            ("left_featurettes", FeaturetteLeftBlock()),
             ("Sm_Right_Media", SmRightMediaBlock()),
             ("Sm_Left_Media", SmLeftMediaBlock()),
             ("cards", CardBlock()),
