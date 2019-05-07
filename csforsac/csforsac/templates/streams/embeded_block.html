@@ -1,0 +1,30 @@
+{% load wagtailembeds_tags %}
+
+{# Embed a YouTube video #}
+{% embed 'https://www.youtube.com/watch?v=SJXMTtvCxRo' %}
+
+{# This tag can also take the URL from a variable #}
+{% embed page.video_url %}
+<head>
+    <style>
+        .responsive-object {
+            position: relative;
+            padding-bottom: 20%;
+            height: 0;
+            overflow: hidden;
+            }
+        .responsive-object iframe,
+        .responsive-object object,
+        .responsive-object embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 95%;
+        }
+        
+    </style>
+</head>
+<div class="container">
+    {{ self }}
+</div>

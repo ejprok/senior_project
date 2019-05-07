@@ -52,7 +52,7 @@ class EmbededBlock(EmbedBlock):
     """ use rich text stream field instead """
 
     class Meta:  # noqa
-        template = "streams/basic_block.html" # 
+        template = "streams/embeded_block.html" # 
         icon = "media"
         label = "embeding"
 
@@ -137,7 +137,8 @@ class FeaturetteRightBlock(blocks.StructBlock):
         icon ="image"
 
 class SmRightMediaBlock(blocks.StructBlock):
-    """ @TODO description """
+    """ Small block with picture on the right and header with paragraph on the left """
+
     right_media = blocks.StructBlock(
     [
         ("img", ImageChooserBlock(required=True)),
@@ -151,7 +152,7 @@ class SmRightMediaBlock(blocks.StructBlock):
         label = "Sm Right Leaning Media"
 
 class SmLeftMediaBlock(blocks.StructBlock):
-    """ @TODO description """
+    """ Small block with picture on the left and header with paragraph on the right """
     left_media = blocks.StructBlock(
     [
         ("img", ImageChooserBlock(required=True)),
@@ -166,7 +167,8 @@ class SmLeftMediaBlock(blocks.StructBlock):
 
 
 class BannerWideImageBlock(blocks.StructBlock):
-    """ @TODO description """
+    """ very large banner image that reach accross the whole page """
+
     banner = blocks.StructBlock(
         [
             ("image", ImageChooserBlock(required=True, help_text="requires a very wide image")),
@@ -181,7 +183,8 @@ class BannerWideImageBlock(blocks.StructBlock):
 
 
 class BannerSquareImageBlock(blocks.StructBlock):
-    # @TODO make template
+    """ large banner with a square image that may not reach across entire page """
+
     square_banner = blocks.StructBlock(
         [
             ("image", ImageChooserBlock(required=True)),
