@@ -17,7 +17,7 @@ from modelcluster.fields import ParentalKey
 
 
 class BlogListingPage(Page):
-    tempalate = "blog/blog_listing_page.html"
+    template = "blog/blog_listing_page.html"
     max_count = 1
     subpage_types = ['BlogFocusPage']
 
@@ -58,7 +58,7 @@ class BlogListingPage(Page):
 
 
 class BlogFocusPage(RoutablePageMixin, Page):
-    tempalate = "blog/blog_focus_page.html"
+    template = "blog/blog_focus_page.html"
     subpage_types = []
     parent_page_types = ['blog.BlogListingPage']
     custom_title = models.CharField(
@@ -85,7 +85,7 @@ class BlogFocusPage(RoutablePageMixin, Page):
             ("title_and_Subtitle", blocks.TitleAndSubtitle() ),
             ("full_richtext", blocks.RichtextBlock()),
             ("limited_richtext", blocks.LimitedRichtextBlock()),
-            ("embeding", blocks.EmbededBlock()),
+            ("embedding", blocks.EmbeddedBlock()),
             ("card_block", blocks.CardBlock()),
             # ("cta", blocks.CTABlock()),
         ],

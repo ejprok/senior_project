@@ -11,7 +11,7 @@ from wagtail.core.models import Page
 
 
 class AdaptPage(RoutablePageMixin, Page):
-    tempalate = "adapt/adapt_page.html"
+    template = "adapt/adapt_page.html"
 
 
     header_content = StreamField(custom_blocks.StreamLists().header_list,

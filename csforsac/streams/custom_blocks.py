@@ -48,13 +48,13 @@ class LimitedRichtextBlock(blocks.RichTextBlock):
         icon = "edit"
         label = "Limited Richtext"
 
-class EmbededBlock(EmbedBlock):
+class EmbeddedBlock(EmbedBlock):
     """ use rich text stream field instead """
 
     class Meta:  # noqa
-        template = "streams/embeded_block.html" # 
+        template = "streams/embedded_block.html" # 
         icon = "media"
-        label = "embeding"
+        label = "embedding"
 
 class CardBlock(blocks.StructBlock):
     """ cards side by side with picture, text, and optional buttons """
@@ -218,7 +218,7 @@ class StreamLists():
         ("Sm_Left_Media", SmLeftMediaBlock()),
         ("cards", CardBlock()),
         ("card_row", CardRow()),
-        ("embeding", EmbededBlock()),
+        ("embedding", EmbeddedBlock()),
     ]
 
 
