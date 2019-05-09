@@ -81,8 +81,8 @@ class CardRow(blocks.StructBlock):
     card_row = blocks.ListBlock(
         blocks.StructBlock(
             [
-                ("title", blocks.CharBlock(required=True, max_length=40)),
-                ("text", blocks.TextBlock(required=True, max_length=375)),
+                ("title", blocks.CharBlock(required=True, max_length=70)),
+                ("text", blocks.TextBlock(required=True, max_length=700)),
                 ("local_page_button", blocks.PageChooserBlock(required=False, help_text="(optional) - this is a button")),
                 ("url_button", blocks.URLBlock(required=False, help_text="(optional) - button above used first")),
             ]
