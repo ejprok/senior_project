@@ -1,0 +1,59 @@
+.fa {
+	font-size: 20px;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: white !important;
+    border: none;
+    color: black;
+}
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+    background-color: gray;
+    border: none;
+    color: white;
+}
+
+.btn-unselected, .btn-unselected:hover, .btn-unselected:active, .btn-unselected:visited {
+    background-color: #BBB;
+    border: none;
+    color: white;
+}
+
+.btn-selected, .btn-selected:hover, .btn-selected:active, .btn-selected:visited {
+    background-color: #666;
+    border: none;
+    color: white;
+}
+
+
+button:focus {outline:0 !important;}
+
+.prev, .next, .today {
+	margin: 0px 5px 0px 5px !important;
+}
+
+.event-calendar {
+	margin-bottom: 50px;
+}
+
+.list-group{
+    max-height: 600px;
+    margin-bottom: 15px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.panel-title {
+	padding-bottom: 10px;
+}
+
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+height: 100%;
+}
+
+.event-container {
+	min-heigh: 700px;
+}

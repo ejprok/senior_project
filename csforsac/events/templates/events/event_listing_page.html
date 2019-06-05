@@ -82,19 +82,38 @@
           zoom: 10
         });
         {% for event in events %}
-	        var myLatlng{{forloop.counter}} = new google.maps.LatLng({{event.geolocation}});
-	        var marker{{forloop.counter}} = new google.maps.Marker({
-			    position: myLatlng{{forloop.counter}},
-			    title:"{{event.title}}"
-			});
-			// To add the marker to the map, call setMap();
-			var infowindow{{forloop.counter}} = new google.maps.InfoWindow({
-	          content: '<a href="{{event.slug}}" >{{event.title}}</a><br>{{event.start_date}}'
-	        });
-			marker{{forloop.counter}}.setMap(map);
-	        marker{{forloop.counter}}.addListener('click', function() {
-	          infowindow{{forloop.counter}}.open(map, marker{{forloop.counter}});
-	        });
+        
+        	//read in the coordinates as a string
+        	var geoCoordinates{{forloop.counter}} = "{{event.geolocation}}";
+        	//split that string on commas to create an array of coordinates
+        	var geoCoordinatesArray{{forloop.counter}} = geoCoordinates{{forloop.counter}}.split(",");
+        	//check that each coordinate is a number
+        	var valid{{forloop.counter}} = true;
+        	geoCoordinatesArray{{forloop.counter}}.forEach(function(element) {
+	        	if (!Number.isNaN(element)) {
+		        	valid{{forloop.counter}} = false;
+		        	console.log("nope");
+	        	}
+        	});
+        	//if not, then do not display that marker
+        	 
+        	if (valid{{forloop.counter}}) {
+	        	
+		        var myLatlng{{forloop.counter}} = new google.maps.LatLng({{event.geolocation}});
+		        var marker{{forloop.counter}} = new google.maps.Marker({
+				    position: myLatlng{{forloop.counter}},
+				    title:"{{event.title}}"
+				});
+				// To add the marker to the map, call setMap();
+				var infowindow{{forloop.counter}} = new google.maps.InfoWindow({
+		          content: '<a href="{{event.slug}}" >{{event.title}}</a><br>{{event.start_date}}'
+		        });
+				marker{{forloop.counter}}.setMap(map);
+		        marker{{forloop.counter}}.addListener('click', function() {
+		          infowindow{{forloop.counter}}.open(map, marker{{forloop.counter}});
+		        });	        	
+        	}
+
 		{% endfor %}
 
 
