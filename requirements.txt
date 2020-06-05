@@ -1,7 +1,7 @@
 beautifulsoup4==4.6.0
 certifi==2018.11.29
 chardet==3.0.4
-Django==2.1.7
+Django==2.2.13
 -e git+https://github.com/jazzband/django-debug-toolbar.git@475d9d5c161e35418e339e269ab8f8333bab504c#egg=django_debug_toolbar
 django-filter==2.1.0
 django-geoposition==0.3.0
